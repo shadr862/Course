@@ -1,0 +1,49 @@
+package rm;
+
+public class Rhombus extends GeometricObject implements Cloneable {
+	private double side;
+	private double height;
+	
+
+	public Rhombus(double side, double height) {
+		super();
+		setSide(side);
+		this.height = height;
+	}
+	
+
+	public void setSide(double side) throws IllegalArgumentException {
+		if(side>=0)
+		{
+			this.side = side;
+		}
+		else
+		{
+			throw new IllegalArgumentException("cannot negative");
+		}
+	}
+
+
+	
+
+
+	@Override
+	public String toString() {
+		return "Rhombus [side=" + side + ", height=" + height + "]";
+	}
+
+
+	@Override
+	public double getArea() {
+		
+		
+		return this.side*this.height;
+	}
+
+	
+	public double getPerimeter() {
+		// TODO Auto-generated method stub
+		return 4*this.side;
+	}
+
+}

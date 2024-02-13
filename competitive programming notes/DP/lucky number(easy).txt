@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 1e5+5;
+
+bool vis[N];
+vector<ll> adj[N];
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+vector<ll> v;
+void gen(ll n,ll s,ll f)
+{
+    if(n>1e10)
+    {
+        return ;
+    }
+
+    if(s==f)v.pb(n);
+
+    gen(n*10LL+4,s,f+1);
+
+    gen(n*10LL+7,s+1,f);
+
+}
+
+inline void solve1()
+{
+
+    ll n;
+    cin>>n;
+    gen(0,0,0);
+    sort(all(v));
+    for(auto x:v)cout<<x<<endl;
+    ll k=lower_bound(all(v),n)-v.begin();
+    cout<<v[k]<<endl;
+
+
+}
+
+int main()
+{
+
+    ll t;
+    //cin>>t;
+
+   // while(t--)
+    {
+
+       solve1();
+
+    }
+
+
+}

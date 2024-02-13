@@ -1,0 +1,87 @@
+https://codeforces.com/contest/1530/problem/C
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1e9+7;
+const int N = (ll) 1e6;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+ll n;
+ll a[100001];
+ll b[100001];
+bool check(ll mid)
+{
+  ll sum = 0;
+  ll k = mid - mid / 4;
+  ll j = n - min(n, k);
+
+  for (int i = n - 1; i >= j; i--)
+    sum += b[i];
+
+  ll in = 0;
+  ll ahead = min(k, mid - n);
+  k -= ahead;
+
+  in = ahead * 100;
+  int i = n - 1;
+
+  while (i >= 0 && k--)
+  {
+    in += a[i];
+    i--;
+  }
+
+  return in >= sum;
+}
+void solve()
+{
+  int i, j, t, q, m, k, ct = 0, sum = 0, flag = 0;
+  cin >> n;
+  for(int i=0;i<n;i++) cin >> a[i];
+  for(int i=0;i<n;i++)  cin >> b[i];
+  sort(a, a + n);
+  sort(b, b + n);
+  ll l = n;
+  ll r = 1e16;
+  int ans = 0;
+  while (l <= r)
+  {
+    ll mid = l + (r - l) / 2;
+
+    if (check(mid))
+    {
+
+      ans = mid;
+      r = mid - 1;
+    }
+    else
+    {
+      l = mid + 1;
+    }
+  }
+  cout << ans - n<<endl;
+}
+int main()
+{
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+
+        solve();
+
+
+    }
+
+	return 0;
+}

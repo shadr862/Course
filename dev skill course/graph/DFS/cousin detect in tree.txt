@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+
+/**
+n = number of people
+m = number of relations
+*/
+int n, m, friends[LIM][LIM], x;
+vector<int> g[LIM];
+int vis[LIM], lev[LIM], cnt[LIM];
+
+void dfs(int u) {
+    for(int i=0; i<g[u].size(); i++) {
+        int v = g[u][i];
+
+        lev[v] = lev[u] + 1;
+        dfs(v);
+    }
+}
+
+// directed graph
+void list_input() {
+    scanf("%d", &n);
+    /// 1 is root
+    for(int u=2; u<=n; u++) {
+        int p;
+        scanf("%d", &p);
+        g[p].push_back(u);
+    }
+    scanf("%d", &x);
+}
+
+int main() {
+    list_input();
+    memset(vis, 0, sizeof vis);
+
+    lev[1] = 1;
+    dfs(1);
+
+    for(int u=1; u<=n; u++) cnt[ lev[u] ]++;
+    cout << cnt[ lev[x] ] - 1 << endl;
+}
+
+/*
+8
+1 1 1 2 2 3 3
+
+2
+*/

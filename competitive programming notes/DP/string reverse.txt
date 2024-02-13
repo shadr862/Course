@@ -1,0 +1,93 @@
+https://codeforces.com/contest/1553/problem/B
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1e9+7;
+const int N = (ll) 1e6;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+bool left(string s,string s1,ll j,ll k)
+{
+
+           while(s[j]==s1[k]&&j>=0&&k<s1.size())
+           {
+               j--;
+               k++;
+           }
+           if(k==s1.size())return 1;
+
+           return 0;
+}
+
+bool right(string s,string s1,ll j,ll k)
+{
+    if(k==s1.size())
+    {
+        return 1;
+    }
+
+   
+    bool l=0,r=0;
+    if(j+1<s.size()&& s[j+1]==s1[k])
+    {
+        r=right(s,s1,j+1,k+1);
+    }
+
+    if(j-1>=0 &&s[j-1]==s1[k])
+    {
+        l=left(s,s1,j-1,k);
+    }
+    return (l || r);
+}
+
+
+void solve1()
+{
+  string s,s1;
+  cin >>s;
+  cin>>s1;
+
+  ll n=s1.size(),i,j=0;
+  for( i=0;i<s.size();i++)
+  {
+      if(s[i]==s1[0])
+      {
+           bool ans=right(s,s1,i,1);
+           if(ans)
+           {
+               cout<<"YES"<<endl;
+               return ;
+           }
+
+      }
+  }
+
+
+
+    cout<<"NO"<<endl;
+
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+
+        solve1();
+
+
+    }
+
+	return 0;
+}

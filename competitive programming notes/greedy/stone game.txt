@@ -1,0 +1,65 @@
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp>
+#include <functional> // for less
+#include <bits/stdc++.h>
+using namespace __gnu_pbds;
+using namespace std;
+typedef tree<int, null_type, less<int>, rb_tree_tag,
+             tree_order_statistics_node_update>
+    pbds;
+#define p pair<int,int>
+typedef long long ll;
+const ll INF=1e18;
+
+
+
+int main()
+{
+
+
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,mx=0,mn=101,indmn=-1,indmx=-1;
+        cin>>n;
+        int arr[n];
+        for(int i=0;i<n;i++)
+        {
+            cin>>arr[i];
+
+        }
+        for(int i=0;i<n;i++)
+        {
+           if(mx<arr[i])
+           {
+               mx=arr[i];
+               indmx=i;
+           }
+
+        }
+        for(int i=0;i<n;i++)
+        {
+           if(mn>arr[i])
+           {
+               mn=arr[i];
+               indmn=i;
+           }
+
+        }
+
+        int mnn = min(indmn,indmx);
+        int mxx = max(indmx, indmn);
+
+        int answer = n,a,b,c;
+        answer= min(answer, mxx+1);
+        answer=min(answer, n-mnn);
+        answer=min(answer, mnn+1+n-mxx);
+        cout<<answer<<endl;
+
+
+
+
+
+    }
+}

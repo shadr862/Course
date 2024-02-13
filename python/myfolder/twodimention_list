@@ -1,0 +1,41 @@
+r=int(input("enter the row no:"))
+c=int(input("enter the col no:"))
+
+matrix=[]
+
+
+for i in range(r):
+    a=[]
+    for j in range(c):
+        a.append(int(input()))
+    matrix.append(a)
+
+
+for i in range(0,r):
+    for j in range(0,c):
+        print(matrix[i][j],end=" ")
+    print() 
+
+    
+sum=0
+for i in range(0,r):
+    for j in range(0,c):
+        sum+=matrix[i][j]
+print(sum)
+
+for i in range(0,r):
+    for j in range(0,c):
+        if(matrix[i][j]>5 and matrix[i][j]<7):
+            print(matrix[i][j],end=" ")
+        else:
+            print(0,end=" ")    
+    print() 
+
+for i in range(0,r):
+    for j in range(0,i+1):
+        print("*",end=" ")
+    print()     
+
+       
+
+       

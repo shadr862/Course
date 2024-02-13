@@ -1,0 +1,56 @@
+https://codeforces.com/problemset/problem/1472/C
+#include <bits/stdc++.h>
+#include <string.h>
+using namespace std;
+
+typedef long long ll;
+#define p pair<long long,long long>
+const ll INF=1e18;
+ll mx=INT_MIN;
+ll vis[200005];
+void dfs(vector<ll>&v,ll ind,ll sum)
+{
+    if(ind>v.size()-1)
+    {
+        return ;
+    }
+    sum=sum+v[ind];
+    if(vis[ind]!=-1) return ;
+    if(sum>mx)
+    {
+        mx=sum;
+        vis[ind]=mx;
+    }
+    ind=ind+v[ind];
+    dfs(v,ind,sum);
+}
+void solve()
+{
+        ll n,sum=0,k;
+        cin>>n;
+        mx=INT_MIN;
+        vector<ll> v;
+        memset(vis,-1,sizeof(vis));
+        for(ll i=0;i<n;i++)
+        {
+           cin>>k;
+           v.push_back(k);
+        }
+
+        for(ll i=0;i<n;i++)
+        {
+            dfs(v,i,0);
+        }
+        cout<<mx<<endl;
+}
+
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+
+    }
+}

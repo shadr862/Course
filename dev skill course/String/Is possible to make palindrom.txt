@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+#define LIM 4005
+#define mod 32768
+#define ll long long
+
+using namespace std;
+
+
+
+
+
+void solve()
+{
+
+    string s;
+    cin>>s;
+    map<char,ll> m;
+    for(ll i=0;i<s.size();i++)
+    {
+        m[s[i]]++;
+    }
+    ll c=0;
+    for(auto x:m)
+    {
+        if(x.second%2==1)c++;
+    }
+
+    if(c>1)
+    {
+        cout<<"NOt possible to make palindrom"<<endl;
+    }
+    else
+    {
+        cout<<"possible to make palindrom"<<endl;
+    }
+
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	   //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		//c++;
+	}
+	return 0;
+}
+
+/*
+  aabbcceefff
+  aabbccceefff
+  
+*/

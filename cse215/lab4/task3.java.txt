@@ -1,0 +1,51 @@
+package javaapplication2;
+
+import java.util.*;
+public class task3 {
+   public static boolean isPalindrome(int n)
+{
+     int rev=reverse(n);
+    
+    boolean b;
+    if(rev==n)
+    {
+        b=true;
+    }
+    else 
+    {
+        b=false;
+    }
+    return b;
+
+}
+   public static int reverse(int n)
+   {
+       int rev=0;
+       while(n!=0)
+    {
+        rev=rev*10;
+        rev=rev+(n%10);
+        n=n/10;
+    }
+       return rev;
+   }
+           
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int num;
+        boolean result;
+        num=sc.nextInt();
+        result=isPalindrome(num);
+        if(result)
+        System.out.println(+num+" num is palindrom");
+        else
+        {
+            System.out.println(+num+" num is not palindrom");
+        }
+        
+        
+        
+    }
+    
+}

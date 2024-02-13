@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+int main()
+{
+    char arr[20];
+    cin >> arr;
+    ll digits = strlen(arr);
+    ll ans = 0;
+    //74747
+     //if fix 7=2^4=16
+     //if fix 74=2^3=8
+     //if fix 747=2^2=4
+     //if fix 7474=2^1=2
+    ans = (1 << digits) - 2;
+    for (ll i = digits - 1, count = 0; i >= 0; i--, count++)
+    {
+      p//4 3 2 1 0
+      //7 4 7 4 7
+    //2^4+2^2+2^0
+    //p=0,4
+    //p=2,
+    //p=3,744,444,447,474
+   
+        if (arr[i] == '7')
+            ans += (1 << count);
+    }
+    cout << (ans + 1) << '\n';
+    return 0;
+}

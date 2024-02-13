@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1618335750 source:c:\users\shad\desktop\dynarr\stacktype\stacktype.cpp
+	"StackType.h"
+	<iostream>
+
+1618335750 c:\users\shad\desktop\dynarr\stacktype\stacktype.h
+
+1616336843 source:c:\users\shad\desktop\dynarr\stacktype\main.cpp
+	<iostream>
+	<string>
+	"StackType.cpp"
+
+1616247748 c:\users\shad\desktop\dynarr\stacktype\stacktype.cpp
+	"StackType.h"
+	<iostream>
+

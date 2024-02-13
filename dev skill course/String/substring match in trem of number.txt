@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define LIM 4005
+#define mod 32768
+#define ll long long
+
+using namespace std;
+
+
+
+
+
+void solve()
+{
+
+    ll a,b,c=1;
+    cin>>a>>b;
+    ll k=b;
+    while(k>0)
+    {
+        c=c*10;;
+        k=k/10;
+    }
+    while(a>0)
+    {
+        ll r=a%c;
+        if(r==b)
+        {
+            cout<<"match"<<endl;
+            return ;
+        }
+        a=a/10;
+    }
+
+     cout<<"not match"<<endl;
+
+
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	   //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		//c++;
+	}
+	return 0;
+}
+
+/*
+  1
+  123456789
+  567
+
+*/

@@ -1,0 +1,15 @@
+Leather bag
+1002
+900.0
+T shirt
+1001
+700.0
+jeans Pant
+1003
+800.0
+leather shoe
+1004
+1500.0
+smartglasses
+1005
+1000.0

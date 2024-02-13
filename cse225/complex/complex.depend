@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1615485072 source:c:\users\shad\desktop\dynarr\complex\com.cpp
+	"complex.h"
+	<iostream>
+
+1615485104 c:\users\shad\desktop\dynarr\complex\complex.h
+

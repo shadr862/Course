@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    long long t;
+    cin>>t;
+    while(t--)
+    {
+        long long n;
+        cin>>n;
+        vector<long long> v;
+        for(int i=0;i<n;i++)
+        {
+            int n1;
+            cin>>n1;
+            v.push_back(n1);
+        }
+        sort(v.begin(),v.end());
+
+        int i=0,r=n-1;
+        while(i<r)
+        {
+            if(abs(v[i]-v[i+1])<v[r])
+            {
+                r--;
+                i--;
+            }
+            i++;
+        }
+		cout << r+1 << endl;
+
+
+
+    }
+}

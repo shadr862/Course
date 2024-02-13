@@ -1,0 +1,19 @@
+package contest;
+import java.util.Scanner;
+public class Contest {
+    public static double area(int n, double side)
+    {
+        double r=(5*side*side)/(4*Math.tan(Math.PI/5));
+        return r;
+       
+    }
+    public static void main(String[] args) {
+   Scanner sc=new Scanner(System.in);
+   double s;
+   System.out.print("Enter the side:");
+   s=sc.nextDouble();
+   double r=area(5,s);
+     System.out.print("The area of the pentagon is "+r);
+      
+    }
+}

@@ -1,0 +1,60 @@
+https://codeforces.com/problemset/problem/1615/B
+void cnt()
+{
+    for(ll i=1;i<=100;i++)
+    {
+        for(ll j=0;j<25;j++)
+        {
+            if(i&(1<<j))
+            {
+                arr[i][j]++;
+            }
+            arr[i][j]+=arr[i-1][j];
+        }
+        cout<<endl;
+    }
+
+    for(ll i=1;i<=100;i++)
+    {
+        for(ll j=0;j<25;j++)
+        {
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+
+void solve()
+{
+    int l,r;
+	cin>>l>>r;
+
+	ll mx=0;
+
+
+	for(ll i=0;i<25;i++)
+    {
+        mx=max(mx,(arr[r][i]-arr[l-1][i]));
+    }
+
+    cout<<r-l+1-mx<<endl;
+
+
+}
+int main()
+{
+    fast_in_out;
+    //prime();
+    cnt();
+	int t;
+    cin>>t;
+
+
+	while(t--)
+	{
+		solve();
+
+	}
+	return 0;
+}

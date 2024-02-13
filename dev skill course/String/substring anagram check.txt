@@ -1,0 +1,83 @@
+#include <bits/stdc++.h>
+#define LIM 4005
+#define mod 32768
+#define ll long long
+
+using namespace std;
+
+
+
+
+
+void solve()
+{
+    ll q;
+    string s;
+    cin>>s>>q;
+    map<char,ll> m;
+    ll c=1;
+    for(char i='a';i<='z';i++)
+    {
+        m[i]=c;
+        c++;
+    }
+    ll arr[27][s.size()];
+
+    for(char i='a';i<='z';i++)
+    {
+        if(s[0]==i)arr[m[i]][0]=1;
+        for(ll j=1;j<s.size();j++)
+        {
+            if(s[j]==i)
+            {
+                arr[m[i]][j]=arr[m[i]][j-1]+1;
+            }
+            else
+            {
+                arr[m[i]][j]=arr[m[i]][j-1];
+            }
+        }
+    }
+
+    while(q--)
+    {
+        ll a,b,c,d;
+        cin>>a>>b>>c>>d;
+        ll f=1;
+        for(ll i=1;i<=26;i++)
+        {
+            ll x=arr[i][b]-arr[i][a-1];
+            ll y=arr[i][d]-arr[i][c-1];
+            if(x!=y)
+            {
+                f=0;
+                cout<<"NOT ANAGRAM"<<endl;
+                break;
+            }
+        }
+        if(f)cout<<"ANAGRAM"<<endl;
+    }
+
+
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	   //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		//c++;
+	}
+	return 0;
+}
+
+/*
+1
+abcdebcdascdbbxcb 2
+1 3 5 7
+1 3 7 9
+*/

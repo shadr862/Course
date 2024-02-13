@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+#define LIM 4005
+#define mod 32768
+#define ll long long
+
+using namespace std;
+
+
+
+
+
+void solve()
+{
+    string s,s1;
+    cin>>s>>s1;
+    map<ll,ll> m,m1;
+    for(ll i=0;i<s.size();i++)
+    {
+        m[s[i]]++;
+        m1[s1[i]]++;
+    }
+
+    for(ll i=0;i<s.size();i++)
+    {
+        if(m[s[i]]!=m[s1[i]])
+        {
+            cout<<"NOT ANAGRAM"<<endl;
+            return ;
+        }
+    }
+     cout<<"ANAGRAM"<<endl;
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	   //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		//c++;
+	}
+	return 0;
+}
+
+/*
+abcde
+bcdae
+*/

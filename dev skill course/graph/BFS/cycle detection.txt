@@ -1,0 +1,117 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+using namespace std;
+
+int n,m;
+vector<int> g[LIM];
+int vis[LIM],par[LIM];
+
+void list_input() {
+    memset(vis, 0, sizeof vis);
+    memset(par,0,sizeof par);
+    scanf("%d %d", &n, &m);
+    for(int i=1; i<=n; i++) g[i].clear();
+
+    for(int i=0; i<m; i++) {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+}
+
+bool bfs(int root,int p) {
+    queue<int> q;
+    vis[root]=1;
+    q.push(root);
+    par[root]=p;
+
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int i=0; i<g[u].size(); i++) {
+            int v = g[u][i];
+            par[v]=u;
+            if(v==par[u])continue;
+            if(vis[v])
+            {
+                cout<<par[u]<<" "<<par[v]<<endl;
+                cout<<u<<" "<<v<<endl;
+                return 1;
+            }
+            vis[v]=1;
+            q.push(v);
+        }
+    }
+    return false;
+}
+
+
+
+
+int main() {
+    list_input();
+    int f=1;
+    for(int u=1; u<=n; u++) {
+        if(!vis[u]) {
+            if(bfs(u,0)==1){
+                cout<<"Cycle detected"<<endl;
+                f=0;
+                break;
+            }
+        }
+    }
+    if(f==1)cout<<"Cycle not detected"<<endl;
+
+}
+
+
+
+
+
+
+/*
+15 15
+1 2
+1 3
+1 4
+4 5
+4 6
+5 8
+5 7
+7 8
+8 9
+1 10
+10 11
+11 12
+11 13
+1 14
+14 15
+*/
+
+/*
+19 23
+1 2
+1 3
+1 4
+2 5
+3 6
+3 7
+3 8
+5 9
+6 10
+7 10
+7 11
+8 11
+8 12
+10 13
+10 14
+11 15
+11 16
+12 16
+13 17
+14 18
+15 19
+16 15
+16 19
+*/

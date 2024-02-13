@@ -1,0 +1,39 @@
+package javaapplication2;
+import java.util.*;
+public class MyTriangle {
+    public static boolean isValid(double side1, double side2, double side3)
+    {
+        boolean b=false;
+        if(side1+side2>side3||side2+side3>side1||side1+side3>side2)
+        {
+            b=true;
+        }
+        return b;
+    }
+    public static double area(double side1, double side2, double side3)
+    {
+        double s=(side1+side2+side3)/2;
+        double r=Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+        return r;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        double s1=sc.nextDouble();
+        double s2=sc.nextDouble();
+        double s3=sc.nextDouble();
+        boolean b=isValid(s1,s2,s3);
+        if(b)
+        {
+            double r=area(s1,s2,s3);
+            System.out.println("Area="+r);
+        }
+        else
+        {
+            System.out.println("the input is invalid.");
+            
+        }
+        
+        
+    }
+}

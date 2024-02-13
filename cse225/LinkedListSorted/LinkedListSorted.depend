@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1630860676 source:c:\users\shad\desktop\dynarr\linkedlistsorted\main.cpp
+	<bits/stdc++.h>
+	"SortedType.cpp"
+
+1630860221 source:c:\users\shad\desktop\dynarr\linkedlistsorted\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1630836480 c:\users\shad\desktop\dynarr\linkedlistsorted\sortedtype.h
+
+1630860221 c:\users\shad\desktop\dynarr\linkedlistsorted\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1617902710 source:c:\users\shad\desktop\sotedlink.cpp
+	<iostream>
+
+1630863796 source:c:\users\shad\desktop\dynarr\linkedlistsorted\main1.cpp
+	<bits/stdc++.h>
+	"SortedType.cpp"
+

@@ -1,0 +1,70 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+typedef long long ll;
+ 
+ 
+// policy Based ds
+#include<ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;
+ 
+typedef tree<long long , null_type, less_equal<long long>, rb_tree_tag,tree_order_statistics_node_update> ordered_set;
+ 
+#define order(s, x) s.order_of_key(x) // return the number of elements in the set that are smaller than x
+#define elemat(s ,x) s.find_by_order(x) // return pointer to element at index x
+ 
+ 
+ 
+typedef   vector<ll>  vl;
+typedef   vector<pair<ll, ll>> vll;
+typedef   multiset<pair<ll, ll>> msll;
+typedef   multiset<ll> msl;
+typedef   set<pair<ll, ll>> sll;
+typedef   set<ll> sl;
+typedef   map<ll, ll> mll;
+typedef   pair<ll, ll>pll;
+ 
+typedef   vector<int>  vi;
+typedef   vector<pair<int, int>> vii;
+typedef   multiset<pair<int, int>> msii;
+typedef   multiset<int> msi;
+typedef   set<pair<int, int>> sii;
+typedef   set<int> si;
+typedef   map<int, int> mii;
+typedef   pair<int, int>pii;
+ 
+ 
+#define recap(i,k,n)  for(int i = k; i>=n; i--)
+#define rep(i,k,n)    for(int i=k; i<n; i++)
+#define boost 	ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define for1(x, a, b)  for(x=a; x<b; x++)
+#define for2(x, a, b)  for(x=a, x>=b; x--)
+#define endl 	"\n"
+#define all(x)  x.begin(), x.end()
+#define mp      make_pair
+#define read    freopen("input.txt","r",stdin)
+#define write   freopen("output.txt","w",stdout)
+#define pb      push_back
+#define ff      first
+#define ss      second
+#define bb      begin
+#define mem(arr, x) memset(arr, x, sizeof(arr));
+#define arr_ub(arr, n, x) upper_bound(arr, arr+n, x)-arr
+#define arr_lb(arr, n, x) lower_bound(arr, arr+n, x)-arr
+#define u_p(v, x) upper_bound(v.begin(), v.end(), x)-v.begin()
+#define l_b(v, x) lower_bound(v.begin(), v.end(), x)-v.begin()
+ 
+ 
+const ll sz=1e6+123;
+#define INF 1000000000000000007
+#define MOD 1000000007
+#define stringLen 18446744073709551620
+#define pi 3.1415926536
+ 
+inline void normal(ll &a) { a %= MOD; (a < 0) && (a += MOD); }
+inline ll modMul(ll a, ll b) { a %= MOD, b %= MOD; normal(a), normal(b); return (a*b)%MOD; }
+inline ll modAdd(ll a, ll b) { a %= MOD, b %= MOD; normal(a), normal(b); return (a+b)%MOD; }
+inline ll modSub(ll a, ll b) { a %= MOD, b %= MOD; normal(a), normal(b); a -= b; normal(a); return a; }
+inline ll modPow(ll b, ll p) { ll r = 1; while(p) { if(p&1) r = modMul(r, b); b = modMul(b, b); p >>= 1; } return r; }
+inline ll modInverse(ll a) { return modPow(a, MOD-2); }
+inline ll modDiv(ll a, ll b) { return modMul(a, modInverse(b)); }

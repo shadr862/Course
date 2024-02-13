@@ -1,0 +1,25 @@
+package newpackage;
+import java.util.*;
+public class task4 {
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int num,c=2;
+        num=sc.nextInt();
+        while(num!=0)
+        {
+            if(num%c==0)
+            {
+                num=num/c;
+                System.out.print(+c+",");
+                
+            }
+            else
+            {
+                c++;
+            }
+            
+        }
+    }
+    
+}

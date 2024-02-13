@@ -1,0 +1,132 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+using namespace std;
+
+int n,m;
+vector<int> g[LIM];
+int vis[LIM], dis[LIM],color[LIM];
+
+void list_input() {
+    memset(vis, 0, sizeof vis);
+
+    scanf("%d %d", &n, &m);
+    for(int i=1; i<=n; i++) g[i].clear();
+
+    for(int i=0; i<m; i++) {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+}
+
+bool bfs(int root,int c) {
+    vis[root] = 1;
+    dis[root] = 0;
+    queue<int> q;
+    q.push(root);
+    color[root]=c;
+
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int i=0; i<g[u].size(); i++) {
+            int v = g[u][i];
+            if(vis[v])
+            {
+                if(color[u]==color[v])
+                {
+                    return false;
+                }
+                continue ;
+            }
+            color[v]=1-color[u];
+            vis[v] = 1;
+            dis[v] = dis[u]+1;
+            q.push(v);
+        }
+    }
+    return true;
+}
+
+void print_color()
+{
+    for(int i=1;i<=n;i++)
+    {
+        cout<<i<<" "<<color[i]<<endl;
+    }
+}
+
+
+int main() {
+    list_input();
+    int f=1;
+    for(int u=1; u<=n; u++) {
+        if(!vis[u]) {
+            if(bfs(u,0)==0){
+                cout<<"NOT Bicolorable"<<endl;
+                f=0;
+            }
+        }
+    }
+    if(f==1)cout<<"Bicolorable"<<endl;
+    //print_color();
+}
+
+
+
+
+
+
+/*
+19 22
+1 2
+1 3
+1 4
+2 5
+3 6
+3 7
+3 8
+5 9
+6 10
+7 10
+7 11
+8 11
+8 12
+10 13
+10 14
+11 15
+11 16
+12 16
+13 17
+14 18
+15 19
+16 19
+*/
+
+/*
+19 23
+1 2
+1 3
+1 4
+2 5
+3 6
+3 7
+3 8
+5 9
+6 10
+7 10
+7 11
+8 11
+8 12
+10 13
+10 14
+11 15
+11 16
+12 16
+13 17
+14 18
+15 19
+16 15
+16 19
+*/

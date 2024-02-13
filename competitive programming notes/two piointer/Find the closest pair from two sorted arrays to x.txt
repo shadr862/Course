@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1000000007;
+const int N = (int) 1e5;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+int fo[N], fe[N];
+
+
+void solve()
+{
+ ll n,m,x;
+ cin>>n;
+ vector<ll> v,v1;
+ for(ll i=0;i<n;i++)
+ {
+     ll y;
+     cin>>y;
+     v.pb(y);
+ }
+ cin>>m;
+ for(ll i=0;i<m;i++)
+ {
+     ll y;
+     cin>>y;
+     v1.pb(y);
+ }
+ cin>>x;
+ sort(v.begin(),v.end());
+ sort(v1.begin(),v1.end());
+ ll l=0,r=m-1,ind1=0,ind2=0;
+ ll mn=INT_MAX;
+
+ while(l<n&&r>=0)
+ {
+     ll sum=v[l]+v1[r];
+     if(abs(sum-x)<mn)
+     {
+         mn=abs(sum-x);
+         ind1=l;
+         ind2=r;
+     }
+     if(sum>x)r--;
+     else
+        l++;
+ }
+
+ cout<<v[ind1]<<" "<<v1[ind2]<<":"<<v[ind1]+v1[ind2]<<endl;
+
+
+
+
+
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+
+    }
+
+	return 0;
+}

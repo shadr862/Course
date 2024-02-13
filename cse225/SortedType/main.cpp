@@ -1,0 +1,91 @@
+#include <iostream>
+#include"SortedType.cpp"
+#include"timeStamp.h"
+using namespace std;
+void checkEmpty(SortedType<int> s)
+{
+    if(s.isEmpty())
+    {
+        cout<<"List is Empty"<<endl;
+    }
+    else{
+        cout<<"List is not Empty"<<endl;
+    }
+}
+void print(SortedType<int> s)
+{
+    int n;
+    for(int i=0;i<s.lengthIs();i++)
+    {
+        s.getNextItem(n);
+        cout<<n<<" ";
+    }
+    cout<<endl;
+    s.resetList();
+}
+void checkFull(SortedType<int> s)
+{
+    if(s.isFull())
+    {
+        cout<<"List is Full"<<endl;
+    }
+    else{
+        cout<<"List is not Full"<<endl;
+    }
+}
+int main()
+{
+    SortedType<int> s;
+    checkEmpty(s);
+    s.insertItem(5);
+    s.insertItem(4);
+    s.insertItem(3);
+    s.insertItem(1);
+    s.insertItem(2);
+    print(s);
+    checkEmpty(s);
+    checkFull(s);
+    s.deleteItem(3);
+    print(s);
+    checkFull(s);
+
+
+    timeStamp t1(15,34,23);
+    timeStamp t2(45,12,12);
+    timeStamp t3(35,12,6);
+    timeStamp t4(12,40,18);
+    timeStamp t5(12,12,12);
+    SortedType<timeStamp> s1;
+    s1.insertItem(t1);
+    s1.insertItem(t2);
+    s1.insertItem(t3);
+    s1.insertItem(t4);
+    s1.insertItem(t5);
+    timeStamp temp;
+    for(int i=0;i<s1.lengthIs();i++)
+    {
+        s1.getNextItem(temp);
+        temp.printf();
+    }
+    s1.resetList();
+    cout<<endl;
+    s1.resetList();
+    s1.deleteItem(t5);
+    for(int i=0;i<s1.lengthIs();i++)
+    {
+        s1.getNextItem(temp);
+        temp.printf();
+    }
+    s1.resetList();
+    cout<<endl;
+    s1.resetList();
+    if(s1.isFull())
+    {
+        cout<<"List is Full"<<endl;
+    }
+    else{
+        cout<<"List is not Full"<<endl;
+    }
+
+    return 0;
+}

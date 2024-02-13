@@ -1,0 +1,167 @@
+#include <bits/stdc++.h>
+#define LIM 10004LL
+#define ll long long
+#define ff first
+#define ss  second
+#define INF 1000000009
+
+using namespace std;
+
+ll dx[]={-1,+1,+0,+0};
+ll dy[]={+0,+0,+1,-1};
+ll c=1;
+
+
+struct node {
+    ll v, w;
+    node(){}
+    node(ll vv,ll ww){v=vv;w=ww;}
+};
+
+bool operator < (const node &u, const node &v) {
+    return u.w > v.w;
+}
+
+vector<pair<ll,ll>> v[LIM],rv[LIM];
+ll dis1[LIM],dis2[LIM];
+
+void BFS(ll s,ll n)
+{
+    for(ll i=1;i<=n;i++)
+    {
+        dis1[i]=INT_MAX;
+
+    }
+
+    queue<node> q;
+    q.push({s,0});
+    dis1[s]=0;
+
+    while(!q.empty())
+    {
+        node u=q.front();
+        q.pop();
+        ll U;
+        U=u.v;
+
+        for(auto x:v[U])
+        {
+
+            if(x.ss+dis1[U]<dis1[x.ff])
+            {
+                dis1[x.ff]=x.ss+dis1[U];
+                q.push({x.ff,dis1[x.ff]});
+
+            }
+
+
+        }
+    }
+
+
+
+}
+
+void BFS1(ll s,ll n)
+{
+    for(ll i=1;i<=n;i++)
+    {
+        dis2[i]=INT_MAX;
+
+    }
+
+    queue<node> q;
+    q.push({s,0});
+    dis2[s]=0;
+
+    while(!q.empty())
+    {
+        node u=q.front();
+        q.pop();
+        ll U;
+        U=u.v;
+
+        for(auto x:rv[U])
+        {
+
+            if(x.ss+dis2[U]<dis2[x.ff])
+            {
+                dis2[x.ff]=x.ss+dis2[U];
+                q.push({x.ff,dis2[x.ff]});
+
+            }
+
+
+        }
+    }
+
+
+
+}
+
+
+
+
+struct tin
+{
+    ll u,v,w;
+};
+
+void solve()
+{
+   ll n,r,s,t,p;
+   cin>>n>>r>>s>>t>>p;
+
+   for(ll i=1;i<=n;i++)
+   {
+       v[i].clear();
+       rv[i].clear();
+   }
+   vector<tin> vc;
+
+
+   for(ll i=0;i<r;i++)
+   {
+       ll u,v1,w;
+       cin>>u>>v1>>w;
+       v[u].push_back({v1,w});
+       rv[v1].push_back({u,w});
+       vc.push_back({u,v1,w});
+
+   }
+   BFS(s,n);
+   BFS1(t,n);
+
+
+
+   ll ans=-1;
+   for(auto x:vc)
+   {
+       ll d=dis1[x.u]+dis2[x.v]+x.w;
+       if(d<=p)
+       {
+           ans=max(ans,x.w);
+       }
+   }
+
+
+  cout<<"Case "<<c<<':'<<" "<<ans<<endl;
+
+  vc.clear();
+
+}
+
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	    //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		c++;
+	}
+	return 0;
+}

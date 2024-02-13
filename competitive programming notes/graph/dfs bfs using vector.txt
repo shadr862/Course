@@ -1,0 +1,118 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1e9+7;
+const int N = (ll) 1e6;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+vector<ll> adj[N];
+bool vis[N];
+void DFSPre(ll source)
+{
+
+    vis[source]=1;
+    for(ll i=0;i<adj[source].size();i++)
+    {
+
+        ll k=adj[source][i];
+               if(!vis[k])
+                {
+                    DFSPre(k);
+                }
+
+
+
+    }
+}
+inline void add(ll a,ll b)
+{
+    adj[a].pb(b);
+    adj[b].pb(a);
+}
+inline BFS(ll x)
+{
+    vis[x]=1;
+    queue<ll>q;
+    q.push(x);
+    while(!q.empty())
+    {
+        ll v=q.front();
+
+        q.pop();
+        for(ll i=0;i<(ll)adj[v].size();i++)
+        {
+                ll k=adj[v][i];
+                if(!vis[k])
+                {
+                    q.push(k);
+                    vis[k]=1;
+                }
+
+        }
+    }
+
+}
+
+inline void solve()
+{
+
+    ll n;
+    cin>>n;
+    ll arr[n],br[n];
+
+    for(ll i=0;i<n;i++)cin>>arr[i];
+    for(ll i=0;i<n;i++)cin>>br[i];
+
+
+
+     for(ll i=0;i<n;i++)
+     {
+         add(arr[i],br[i]);
+     }
+     ll c=0;
+     for(ll i=1;i<=n;i++)
+     {
+         if(!vis[i])
+         {
+             DFSPre(i);
+             c++;
+         }
+     }
+     for(ll i=1;i<=n;i++)
+     {
+         adj[i].clear();
+         vis[i]=0;
+     }
+     ll ans=1;
+
+     for(ll i=0;i<c;i++)
+     {
+         ans=(ans*2)%mod;
+     }
+     cout<<ans<<endl;
+
+
+
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+
+        solve();
+
+    }
+
+	return 0;
+}

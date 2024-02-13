@@ -1,0 +1,2 @@
+link: https://vjudge.net/contest/482394
+password: cpi12

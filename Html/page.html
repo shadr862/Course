@@ -1,0 +1,1048 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Software Requirements Specification for Exam Cohort</title>
+    <style type="text/css">
+        body
+        {
+            counter-reset: page;
+        }
+        #pageFooter
+        {
+            page-break-before: always;
+            counter-increment: page;
+        }
+        #pageFooter:after
+        {
+            display: block;
+            text-align: right;
+            content: "Page " counter(page);
+        }
+        #pageFooter.first.page
+        {
+            page-break-before: avoid;
+        }
+    </style>
+    <script type="text/javascript">
+        function PrintPanel() {
+            var panel = document.getElementById("content");
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title></title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(panel.innerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            setTimeout(function () {
+                printWindow.print();
+                printWindow.close();
+            }, 500);
+            return false;
+        }
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js">
+    </script>
+			   <style>
+             ol {
+                  list-style-type: none;
+                  counter-reset: item;
+                  margin: 0;
+                  padding: 0;
+               }
+           li {
+               display: table;
+               counter-increment: item;
+               margin-bottom: 0.6em;
+              }
+           li:before {
+               content: counters(item, ".") ". ";
+               display: table-cell;
+               padding-right: 0.6em;
+             }
+           li li {
+               margin: 0;
+            }
+               li li:before {
+               content: counters(item, ".") " ";
+           }
+		   <style type='text/css'>
+              .row {
+               display: table;
+              }
+
+             .title, .dots, .value {
+                 display: table-cell;
+               }
+
+            .title, .value {
+                 white-space: nowrap;
+            }
+
+           .table {
+              width: 1000px;
+              margin: 10px;
+			  
+            }
+
+            .dots {
+                border-bottom: 2px dotted gray;
+                width: 200%
+            }
+			</style>
+  
+    
+</head>
+<body>
+        <div id="content">
+            <div id="makepdf">
+			   
+            <section>
+              <div class="table" >
+		       <h2>Table of Contents</h2>
+              <div class="row">
+                 <div class="title"><b>Table of Contents</b></div>
+                 <div class="dots"></div>
+                 <div class="value"><b>ii</b></div>
+              </div>
+			  <div class="row">
+                 <div class="title"><b>Revision History</b></div>
+                 <div class="dots"></div>
+                 <div class="value"><b>ii</b></div>
+			  </div>	 
+              
+              <div class="row">
+					 <div class="title"><b>1. Introduction</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>1</b></div>
+		      </div>
+			  <div class="row">
+					
+					<div class="title">&ensp;1.1 Product Perspective</div>
+                    <div class="dots"></div>
+                    <div class="value">1</div>	
+              </div>
+              <div class="row">
+					
+					<div class="title">&ensp;1.2 Product Functions</div>
+                    <div class="dots"></div>
+                    <div class="value">1</div>	
+              </div>	
+
+              <div class="row">
+					
+					<div class="title">&ensp;1.3 User Classes and Characteristics</div>
+                    <div class="dots"></div>
+                    <div class="value">1</div>	
+              </div>
+
+              <div class="row">
+					
+					<div class="title">&ensp;1.4 References</div>
+                    <div class="dots"></div>
+                    <div class="value">1</div>	
+              </div>
+            </div>			  
+              <div class="table">
+              <div class="row">
+					 <div class="title"><b>2. Overall Description</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>2</b></div>
+		      </div>
+			  <div class="row">
+					
+					<div class="title">&ensp;2.1 Purpose</div>
+                    <div class="dots"></div>
+                    <div class="value">2</div>	
+              </div>
+              <div class="row">
+					
+					<div class="title">&ensp;2.2 Document Conventions</div>
+                    <div class="dots"></div>
+                    <div class="value">2</div>	
+              </div>	
+
+              <div class="row">
+					
+					<div class="title">&ensp;2.3 Intended Audience and Reading Suggestions</div>
+                    <div class="dots"></div>
+                    <div class="value">2</div>	
+              </div>
+
+              <div class="row">
+					
+					<div class="title">&ensp;2.4 Operating Environment</div>
+                    <div class="dots"></div>
+                    <div class="value">2</div>	
+              </div>
+
+              <div class="row">
+					
+					<div class="title">&ensp;2.5 Design and Implementation Constraints</div>
+                    <div class="dots"></div>
+                    <div class="value">2</div>	
+              </div>	
+
+              <div class="row">
+					
+					<div class="title">&ensp;2.6 User Documentation</div>
+                    <div class="dots"></div>
+                    <div class="value">2</div>	
+              </div>
+
+              <div class="row">
+					
+					<div class="title">&ensp;2.7 Assumptions and Dependencies</div>
+                    <div class="dots"></div>
+                    <div class="value">3</div>	
+              </div>
+			  
+    
+			</div>	 
+			  
+         	<div class="table">
+			  <div class="row">
+					
+					<div class="title"><b>3. External Interface Requirements</b></div>
+                    <div class="dots"></div>
+                    <div class="value"><b>3</b></div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;3.1 User Interfaces</div>
+                    <div class="dots"></div>
+                    <div class="value">3</div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;3.2 Hardware Interfaces</div>
+                    <div class="dots"></div>
+                    <div class="value">3</div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;3.3 Software Interfaces</div>
+                    <div class="dots"></div>
+                    <div class="value">3</div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;3.4 Communications Interfacee</div>
+                    <div class="dots"></div>
+                    <div class="value">3</div>	
+              </div>
+			  
+			  </div>
+			  
+			  <div class="table">
+			  <div class="row">
+					
+					<div class="title"><b>4.&ensp;System Features</b></div>
+                    <div class="dots"></div>
+                    <div class="value"><b>4</b></div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;4.1&ensp;System Feature&ensp;1 </div>
+                    <div class="dots"></div>
+                    <div class="value">4</div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;4.2&ensp;System Feature&ensp; 2&ensp;(and so on)</div>
+                    <div class="dots"></div>
+                    <div class="value">4</div>	
+              </div>
+			   
+			  </div>
+			
+		      <div class="table">
+              <div class="row">
+					 <div class="title"><b>5.&ensp;Other Nonfunctional Requirements</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>4</b></div>
+		      </div>
+			  <div class="row">
+					
+					<div class="title">&ensp;5.1 Performance Requirements</div>
+                    <div class="dots"></div>
+                    <div class="value">4</div>	
+              </div>
+              <div class="row">
+					
+					<div class="title">&ensp;5.2 Safety Requirements</div>
+                    <div class="dots"></div>
+                    <div class="value">5</div>	
+              </div>	
+
+              <div class="row">
+					
+					<div class="title">&ensp;5.3 Security Requirements</div>
+                    <div class="dots"></div>
+                    <div class="value">5</div>	
+              </div>
+
+              <div class="row">
+					
+					<div class="title">&ensp;5.4 Software Quality Attributes</div>
+                    <div class="dots"></div>
+                    <div class="value">5</div>	
+              </div>
+			  
+			  <div class="row">
+					
+					<div class="title">&ensp;5.5 Business Rules</div>
+                    <div class="dots"></div>
+                    <div class="value">5</div>	
+              </div>
+              </div>
+			  <div class="table">
+              <div class="row">
+					 <div class="title"><b>6.&ensp;Other Requirements</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>5</b></div>
+		      </div>
+			  <div class="row">
+					 <div class="title"><b>Appendix A: Glossary</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>5</b></div>
+		      </div>
+			  <div class="row">
+					 <div class="title"><b>Appendix B: Analysis Models</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>5</b></div>
+		      </div>
+			  <div class="row">
+					 <div class="title"><b>Appendix C: To Be Determined List</b></div>
+                     <div class="dots"></div>
+                     <div class="value"><b>6</b></div>
+		      </div>
+			  </div>
+			 
+             </section>
+			</div>
+       
+        </div>
+
+        <div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   <h2>1.	Introduction</h2>
+				 <p style="text-align:justify">The purpose of this Software Requirements Specification (SRS) is to define and describe the functions
+				 and specifications of our project.This Software Requirements Specification illustrates, in clear terms, the system’s
+				 primary uses and required functionality so that the next developers can easily understand what
+				 we did and how to change anything if it is required.</p>
+				 
+				<h3> 1.1 Purpose</h3>
+                <p style="text-align:justify">The purpose of this Software Requirements Specification (SRS) is to define 
+				and describe the functions and specifications of our project. This Software Requirements Specification illustrates,
+				in clear terms, the system’s primary uses and required functionality so that the next developers can easily understand what
+				we did and how to change anything if it is required.</p>
+				<h3>1.2	Document Conventions</h3>
+				<p style="text-align:justify"><b>Main Section Titles</b></p>
+				<ol type="1">
+				      <li>Font: Times New Roman</li>
+					  <li>Face: Bold</li>
+					  <li>Size: 18</li>
+					  
+				</ol>
+				
+				<p style="text-align:justify"><b>Sub Section Titles</b></p>
+				<ol type="1">
+				      <li>Font: Times New Roman</li>
+					  <li>Face: Bold</li>
+					  <li>Size: 14</li>  
+				</ol>
+				
+				<p style="text-align:justify"><b>Other Text Explanations</b></p>
+				<ol type="1">
+				      <li>Font: Times New Roman</li>
+					  <li>Face:  Normal</li>
+					  <li>Size: 12</li>  
+				</ol>
+				
+				<h3> 1.3 Intended Audience and Reading Suggestions</h3>
+				<p style="text-align:justify">The SRS is intended for software developers, designers, project managers and testers.
+				The document is intended to be read sequentially as it is.</p>
+				
+				<h3> 1.4 Product Scope</h3>
+				<p style="text-align:justify">Users can sign up to the system. Each user can create an Exam-Cohort. 
+				The user who creates an exam-cohort is the evaluator for that exam-cohort.
+				He/She can add other users of the system as candidates to the Exam-cohort.</p> 
+				
+				<p style="text-align:justify">Within each exam-cohort, the evaluator can create one or more assessments. 
+				When creating an assessment, the evaluator must supply the 'available date-time', the 'due date-time' and specify the questions. </p>
+				
+				<p style="text-align:justify">There can be multiple questions. For each question a mark must be specified.
+				Questions can MCQs or micro-viva. For both the marking should be automatic. 
+				For MCQs the evaluator should mark the correct answer(s).
+				When presenting MCQs to the candidates, the options should be randomized in order.
+				For a micro-viva the question is supplied as a recording and a correct answer is also supplied as a recording by the evaluator.
+				During the exam, the candidate will hear the question because the system will play the recorded question. 
+				Then the candidate will answer using his/her voice which will be recorded.
+				The system should run a speech recognition solution on the recording and compare the answer with the pre-specified answer for a correct/incorrect assessment.
+				For now, you can assume that the answers are going to be a maximum of 5 words. 
+				For each question, irrespective of type, the evaluator must set a maximum-time, 
+				it is the number of seconds allowed for a student to answer a question before the system moves to the next one. 
+				The order of questions should also be randomized when presenting to candidate.</p>
+				<p style="text-align:justify">The marking should be done automatically, as mentioned previously. 
+				Evaluators should be able to see/hear/read the answer of any candidate within the exam-cohort. 
+				The evaluator can also adjust the mark of any question of an assessment within the exam-cohort.</p>
+				
+				<p style="text-align:justify">Evaluators should be able to download a spreadsheet of marks,
+				with full breakdowns of each mark of each assessment for each student.Users should be able to do all of the above
+				(including candidates completing assessment questions) on a web application.
+				In addition there should be a mobile application that allows users to sign in and complete assessments. Needless to say,
+				all data should be properly synchronized among all views.</p>
+				
+				<p style="text-align:justify">There will be no separate sign up process.
+				Users should be able to sign in using a Google Account.</p>
+				
+				<h3>1.5 References</h3>
+				<p style="text-align:justify">[1]	IEEE Software Engineering Standards Committee, “IEEE Std 830-1998,
+				IEEE Recommended Practice for Software Requirements Specifications”, October 20, 1998</p>
+                <p style="text-align:justify">[2]"Syque," [Online]. Available: http://syque.com/quality_tools/tools/Tools104.htm. 
+				[Accessed 17 jun 2022].</p>
+				
+			</div>
+       
+        </div>
+		
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+			<h2>2. Overall Description</h2>
+           
+          <h3> 2.1 Product Perspective</h3>
+                  <p style="text-align:justify">This system will consist of two parts: one android application and one web portal. 
+                    The mobile application will be used that allows users to sign in and complete 
+                    assessments. The web portal will be used by evaluators and candidates.
+                    The android application needs version 7.0 or above. Android phones with 
+                    version 7.0 or above comes with necessary hardware required for augmented 
+                    reality support. 
+                    The mobile application and the web application will both have a database to
+                    keep all candidates' exam records. The web portal will have read, write and modify 
+                    access to the database but the mobile app will only have read access. 
+                    </p>
+          <h3>2.2 Product Functions</h3>
+          <p style="text-align:justify">With the mobile application and the web application the candidates will be able to 
+            give their exam via MCQs or micro-viva. The evaluator can see who have summited
+            the paper and who didn’t from both in mobile application and the web application.</p>
+          
+          
+          <h3> 2.3 User Classes and Characteristics</h3>
+          <p style="text-align:justify">There are two types of users of the platform. The candidates and the evaluator.
+            <br><br>
+            The candidates will be able to use the mobile app and the web app. They can use 
+            all the features the mobile app provides.
+            <br><br>
+            The evaluator will be able to use the mobile app and the web app. Evaluator can 
+            see all the candidates answer and he/she can add other users of the system as 
+            candidates to the Exam-cohort via web app. Moreover, the evaluator can create 
+            one or more assessments via web app. 
+            </p>
+          
+          <h3> 2.4 Operating Environment</h3>
+          <p style="text-align:justify">
+            Operating System: Android 7.0 
+            <br><br>
+            Disk Space: 100 MB 
+            <br><br>
+            RAM: 1 GB
+            </p> 
+          
+          <h3>2.5 Design and Implementation Constraints</h3>
+          <p style="text-align:justify">As this is an online application, internet connection is a constraint. Internet 
+            connection is crucial for the application to fetch data from the database over the 
+            internet. Both the web portal and the mobile application will be constrained by the 
+            capacity of the database. Since the database is shared between both application 
+            it may be forced to queue incoming requests and therefore increase the time it 
+            takes to fetch data.
+          </p>
+
+          <h3>2.6 User Documentation</h3>
+          <p style="text-align:justify">The platform is just entering the development stage. Once the development is 
+            completed and a prototype released user documentation will be provided.            
+          </p>
+
+          <h3>2.7 Assumptions and Dependencies</h3>
+          <p style="text-align:justify">One assumption for the android application is the application will be used mostly 
+            on high-end or latest phones as for a few years as the hardware requirement can 
+            only be met on those phones.
+            Proper browser should be used for the web app and a stable internet connection 
+            is required.            
+          </p>
+				
+				
+				
+			</div>
+       
+        </div>
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+			           <h2>3. External Interface Requirements</h2>
+          <p style="text-align:justify">All inputs and outputs necessary for the requirements will be specified in this section. Hardware,
+          Software and communication interfaces will also be characterized here.</p>
+  
+                  <h3>3.1	User Interfaces</h3>
+                  <p style="text-align:justify">When the user uses the web for the first time, they will be prompted for registering by google sign up. 
+          Already registered users can select to login through a button which will bring them to a log-in page. 
+          Users should be able to login by using their email and password which he/she used in their google account.</p>
+          
+          <p style="text-align:justify">If the user is already logged into the system, they will land on the home page.
+          The home page will show the exam cohort. Every user can create the assessment and 
+          they will add user who can participate in this assessment and the owner can see the mark of all participant in spreadsheet.</p>
+          
+          <p style="text-align:justify">There can be multiple questions. For each question a mark must be specified.
+          Questions can MCQs or micro-viva. For both the marking should be automatic. For MCQs the evaluator should mark the correct answer(s).
+          When presenting MCQs to the candidates, the options should be randomized in order.
+          For a micro-viva the question is supplied as a recording and a correct answer is also supplied as a recording by the evaluator.
+          During the exam, the candidate will hear the question because the system will play the recorded question.
+          Then the candidate will answer using his/her voice which will be recorded. 
+          The system should run a speech recognition solution on the recording and compare the answer with the pre-specified answer for a
+          correct/incorrect assessment. For now, you can assume that the answers are going to be a maximum of 5 words. 
+          For each question, irrespective of type, the evaluator must set a maximum-time, it is the number of seconds allowed for
+          a student to answer a question before the system moves to the next one.The order of questions should also be randomized 
+          when presenting to candidate.</p>
+          
+          <h3>3.2	Hardware Interfaces</h3>
+          <p style="text-align:justify">Neither the mobile application nor the web version has any special hardware requirements. 
+          So, the system will not have any hardware interface. </p>
+          
+          <h3>3.3	Software Interfaces</h3>
+          <p style="text-align:justify">Both the mobile application and the website will communicate with the database via internet. 
+          The operating system will provide such interfaces. Both the platforms will consist of operations regarding read and write of data. </p>
+          
+          <h3>3.4	Communications Interfaces</h3>
+          <p style="text-align:justify">The means of communication between the different part of the system is not important and will be 
+          handled by the operations provided by the browser or operating system. </p>
+          
+				
+				
+			</div>
+       
+        </div>
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+			  
+    <h1>4. System Features</h1>
+    <p>This section includes the requirements that describe all the essential functions of the system. The naming convention will follow the following conventions</p>
+    <p>PFRx : Primary functional requirement</p>
+    <p>SFRx : Secondary functional requirement</p>
+
+    <h3>4.1 Functional Requirement 1</h3>
+    <h2>4.1.1 Functional requirement 1.</h2>
+    <h2>ID: PFR1</h2>
+    <p>TITLE: User Registration</p>
+    <p>ACTOR: User</p>
+    <p>PURPOSE: Register the user information</p>
+    <p>OVERVIEW: Given that a user has downloaded the mobile application, or accessed the website then the user should be able to register into the system. The user must provide Name, Password, Address, Phone Number, address and user type. User type consist of buyer and seller. TYPE: Primary function</p>
+    <p>PRIORITY: High</p>
+    <p>DEP: none</p>
+    <p>COURSE OF EVENTS:</p>
+      <ul>
+        <li>Open the application or website</li>
+        <li>Enter all the information</li>
+        <li>Click on register</li>
+    </ul>
+    <p>
+
+    </p>
+    
+        
+    
+
+    <div>
+        
+        <h3>4.1.2 Functional requirement 1.2</h3>
+        <h2>ID: PFR2</h2>
+        
+        <p>TITLE: User Login</p>
+        <p>ACTOR: User</p>
+        <p>PURPOSE: Login the user</p>
+        <p>OVERVIEW: Given that the user is already registered, the user will be able to login by providing the email and password.</p>
+        <p>TYPE: Primary function</p>
+        <p>PRIORITY: High</p>
+        <p>DEP: PFR1</p>
+        <p>COURSE OF EVENTS:</p>
+            
+            <li>i)Open the application or website</li>
+            <li>Enter Google account information</li>
+            <li>Click on register</li>
+        
+        
+        <p>ALTERNATIVE COURSE OF EVENTS:</p>
+            <li>Wrong Google information WIll show error message</li>
+            <li>User will redirect to login page</li>
+        
+        
+
+    </div>
+    
+				
+				
+			</div>
+       
+        </div>
+		
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+			  
+                  <div>
+        <h3>4.1.3 Functional requirement 1.3</h3>
+        <h2>ID: PFR3</h2>
+        <h2>TITLE:Exam-cohort</h2>
+        <p>ACTOR:User</p>
+        <p>PURPOSE:Create an Exam-cohort to take exam among the exam cohort participants </p>
+        <p>OVERVIEW:Any user who have been register can create a exam cohort to create assessments</p>
+        <p>TYPE: Primary function</p>
+        <p>PRIORITY: High</p>
+        <p>DEP: PFR2</p>
+        <p>COURSE OF EVENTS:</p>
+        <ol>
+            <li>CLick on create exam cohort</li>
+            <li>Fill up basic information about exam cohort</li>
+            <li>CLick on create</li>
+        </ol>
+        <ol>
+            <li>Basci information require feild must be done otherwise Error msg will shown</li>
+            
+             
+            <li>Return a success msg after creating the exam cohort</li>
+        </ol>
+
+    </div>
+    <div>
+        <h3>4.1.4 Functional requirement 1.4</h3>
+        <h2>ID: PFR4</h2>
+        
+        <p>TITLE:MCQ Assessments</p>
+        <p>ACTOR:Exam-cohort Creator</p>
+        <p>PURPOSE:creation of mcq assessments in exam-cohort</p>
+        <p>OVERVIEW: when a user resgister he/she can create exam cohort and create assessments like Multiple choice question. He/she can create the ques set right answer and also fix the starting time and end time</p>
+        <p>TYPE: Primary function</p>
+        <p>DEP: PFR3</p>
+        <p>COURSE OF EVENTS:</p>
+        <ol>
+            <li>Click on create exam</li>
+            <li>choose type MCQ</li>
+            <li>Set question</li>
+            <li>set options</li>
+            <li>set right answeer</li>
+            <li>click strat and end time and set this feild</li>
+        </ol>
+        <ol>
+            <li>if does not choose type a error will shown</li>
+            <li>must have to set time </li>
+            <li>show a success msg after click create</li>
+        </ol>
+        </div>
+
+        
+				
+				
+			</div>
+       
+        </div>
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+		
+				<div>
+            <h3>4.1.5 Functional requirement 1.5</h3>
+            <h2>ID: PFR5</h2>
+            
+            <p>TITTLE:Micro-Viva</p>
+            <p>ACTOR:Exam-cohort creator</p>
+            <p>PURPOSE:Create exam type micro-viva</p>
+            <p>OVERVIEW:Exam Cohort creator can create exam type microviva where he/she can create viva ques in recording format.Cnadidate can take the exam and gave answer in recording format. using speech recognition the right answer can evaluate</p>
+            <p>TYPE: Primary function</p>
+            <p>PRIORITY: High</p>
+            <p>DEP: PFR3</p>
+            <p>COURSE OF EVENTS:</p>
+            <ol>
+                <li>click record question</li>
+                <li>set one or more ques</li>
+                <li>set right answers</li>
+                <li>set time </li>
+                <li>click create</li>
+            </ol>
+            <p>ALTERNATIVE COURSE OF EVENTS:</p>
+            <ol>
+                <li>Atleast create one question or system will return error message</li>
+                <li>Right answers must be saved</li>
+                <li>Click create return success message</li>
+            </ol>
+        </div>
+        
+    <div>
+        <h3>4.1.6 Functional requirement 1.6</h3>
+        <h2>ID: PFR6</h2>
+        <p>TITTLE:Mark evalution</p>
+        <p>ACTOR:System</p>
+        <p>PURPOSE:Automate the marking process</p>
+        <p>OVERVIEW:We will create a system where exam assessments creator will set the right answers and system will evaluate answers of cadidate and mark cadidate automatically</p>
+        <p>TYPE: Secondary function</p>
+        <p>PRIORITY:High</p>
+        <p>DEP: PFR4 and PFR5</p>
+        <p>COURSE OF EVENTS:</p>
+        <ol>
+            <li>MAtch Given answer of candidate with answer of exam creator</li>
+            <li>evaluate the exam and show grade to candidate and evalutor</li>
+        </ol>
+        <p></p>
+        <ol>
+            <li>Based on exam creator answer script it will show right or worng answer to candidate.</li>
+        </ol>
+    </div>
+				
+			</div>
+       
+        </div>
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+		        <div>
+    <h3>4.1.7 Functional requirement 1.7</h3>
+    <h2>ID: PFR7</h2>
+    <p>Tittle:download marksheet</p>
+    <p>ACTOR:Exam-cohort Creator</p>
+    <p>PURPOSE:to DOwnload marksheet by Exam-cohort creator</p>
+    <p>OVERVIEW:After evaluate mark of all candidate system will create a marksheet for Exam-cohort creator which can be downloaded.></p>
+    <p>TYPE: Primary function</p>
+    <p>PRIORITY: Low</p>
+    <p>DEP: PFR6</p>
+    <p>COURSE OF EVENTS:</p>
+    <ol>
+        <li>click download marksheet </li>
+        
+    </ol>
+   <P> ALTERNATIVE COURSE OF EVENTS:</P>
+      <ol>
+        <li>I) Data not downloaded properly, show error: “Couldn’t connect to server, please check your internet connection and try again later!</li>
+      </ol>
+   </div>
+   <div>
+    <h3>4.1.8 Functional requirement 1.8</h3>
+    <h2>ID: PFR8</h2>
+    <p>TITLE:Adjust Mark</p>
+    <p>ACTOR:Exam-cohort Creator</p>
+    <p>PURPOSE:Based on human erro exam creator can adjust mark</p>
+    <p>OVERVIEW:As Exam-cohort creator set questions,he/she can done any kind error in time of right answer settings, so using this feature exam mark can be adjusted.</p>
+    <p>TYPE: Primary function</p>
+    <p>PRIORITY: High</p>
+    <p>DEP: none</p>
+    <p>COURSE OF EVENTS:</p>
+    <ol>
+        <li>Chosse candidate</li>
+        <li>CLick adjust mark</li>
+        <li>adjust mark and click done</li>
+    </ol>
+    <p>ALTERNATIVE COURSE OF EVENTS:</p>
+    <ol>
+        <li>After click done if will show confirm msg. by clicking confirm mark will updated</li>
+    </ol>
+   </div>
+			
+				
+			</div>
+       
+        </div>  
+		
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+		         <div>
+    <div>
+        <h1>4.2 Functional Requirement 2</h1>
+
+    </div>
+    <div>
+        <h2>4.2.1 Functional requirement 2.1</h2>
+        <h3>ID: SFR1</h3>
+        <p>TITLE: Download mobile application or open browser</p>
+        <p>ACTOR: User</p>
+        <p>OVERVIEW: A user should be able to download the mobile application through either an application store or similar service on the mobile phone. The application should be free to download.Also A suer can get access to website from any browser</p>
+        <p>PURPOSE: In order for a user to download the mobile application.</p>
+        <p>TYPE: Secondary function</p>
+        <p>Priority: High</p>
+        <p>DEP: None</p>
+        <p>COURSE OF EVENTS:</p>
+        <ol>
+            <li>Downloads the app from google play store or open browser </li>
+        </ol>
+    </div>
+    <div>
+        <h2>4.2.1 Functional requirement 2.1</h2>
+        <h3>ID: SFR2</h3>
+        <p>TITLE: Check Google login</p>
+        <p>ACTOR: System</p>
+        <p>RAT: Match the google Account</p>
+        <p>DESC: Match Google account entered by the user during login. The inserted account will be matched against the one stored in the database.</p>
+        <p>TYPE: Secondary function</p>
+        <p>PRIORITY: High</p>
+        <p>DEP: PFR2</p>
+        <p>COURSE OF EVENTS:</p>
+        <ol>
+            <li>Get google account from user</li>
+            <li>Match with database google account</li>
+        </ol>
+        <p>ALTERNATIVE COURSE OF EVENTS:</p>
+        <ol>
+            <li>The errors will be handled by the view using this function
+            </li>
+        </ol>
+    </div>
+    
+</div>
+
+<section>
+			
+				
+			</div>
+       
+        </div>
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+			   
+		           <div>
+        <h2>4.2.3 Functional requirement 2.3</h2>
+        <h3>ID: SFR3</h3>
+        <p>TITLE: Check if User is logged in</p>
+        <p>ACTOR: System</p>
+        <p>PURPOSE: Check if user is already logged in</p>
+        <p>OVERVIEW: The system may need to check if the user is properly logged in in different scenarios. The login state may be cached in the running device.</p>
+        <p>TYPE: Secondary function</p>
+        <p>PRIORITY: High</p>
+        <p>DEP: PFR2</p>
+        <p>COURSE OF EVENTS:</p>
+        <ol>
+            <li>Get user login status from device</li>
+        </ol>
+        <p>ALTERNATIVE COURSE OF EVENTS:</p>
+        <ol>
+            <li>Could not access device storage, show error Could not access device memory. Check the permissions for this app or web app</li>
+        </ol>
+    </div>
+			<div>
+			
+			<h2>5.3Software Quality Attributes</h2>
+        <p>The requirements in this section specify the required reliability, availability, and maintainability of the software system.</p>
+     </div>
+     <div>
+     <h3>5.3.1 Reliability</h3>
+     <br>
+     <h3>ID: NFR11</h3>
+     <p>TAG: SystemReliability</p>
+     <p>GIST: The reliability of the system</p>
+     <p>SCALE: The reliability that the system gives the right result on mark evalution.</p>
+     <p>METER: Measurements obtained from 100 Exam-Cohort during testing.</p>
+     <p>MUST: More than 98% of the exam.</p>
+     <p>WISH: 100% of the exam mark exalution</p>
+    </div>
+    <div>
+        <h3>5.3.2 Availability</h3>
+        <br>
+        <h3>ID: NFR12</h3>
+        <p>TAG: SystemAvailability</p>
+        <p>GIST: The availability of the system when it is used.</p>
+        <p>SCALE: The average system availability (not considering network failing).</p>
+        <p>METER: Measurements obtained from 1000 hours of usage during testing.</p>
+        <p>MUST: More than 98% of the time.</p>
+        <p>PLAN: More than 99% of the time.</p>
+        <p>WISH: 100% of the time.</p>
+        
+				
+			</div>
+       
+        </div>
+		
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+		         <div>
+        
+    </div>
+    <div>
+        <h3>ID: NFR13</h3>
+        <p>TITLE: Internet Connection</p>
+        <p>OVERVIEW: The application should be connected to the Internet.</p>
+        <p>PURPOSE: In order for the application to communicate with the database.</p>  
+        <p>DEP: none</p>
+    </div>
+    <div>
+        <h3>5.3.3 Maintainability</h3>
+        <br>
+        <h3>ID: NFR14</h3>
+        <p>TITLE: Application extendibility</p>
+        <p>OVERVIEW: The application should be easy to extend. The code should be written in a way that it favors implementation of new functions.</p>
+        <p>DEP: none</p>
+        <br>
+        <h3>ID: NFR15</h3>
+        <p>TITLE: Application testability</p>
+        <p>OVERVIEW: Test environments should be built for the application to allow testing of the applications different functions</p>
+        <p>PURPOSE: In order to test the application.</p>
+        <p>DEP: none</p>
+        <br>
+        <h3>5.3.4 Portability</h3>
+        <h3>ID: NFR16</h3>
+        <p>TITLE: Application portability</p>
+        <p>OVERVIEW: The application should be portable with system</p>
+        <p>PURPOSE: The adaptable platform for the application to run on.</p>
+        <p>DEP:none</p>
+
+    </div>
+	
+	<div>
+        <br>
+        <h2>5.4Business Rules</h2>
+        <p>Security of user will be higher Priority and as mark evalution is automated so system must ensure 100% correct result and for micro viva speech recognition system must be tested</p>
+    </div>
+				
+			</div>
+       
+        </div>
+		
+		<div id="content">
+            <div id="pageFooter"></div>
+            <div id="makepdf">
+		         <div>
+                    <section class="otherRequirements">
+
+<section>
+          <section class="otherRequirements">
+
+    
+            
+                
+                <div>
+                <h1>6. Other Requirements</h1>
+                
+                <h4>Backup and Recovery: Keep proper system wide backups and the backup cycle should be regular and frequent enough.</h4>
+                
+                <h1>Appendix A: Glossary</h1>
+                
+                <p>Definitions, acronyms, and abbreviations are listed below:</p>
+                </div>
+                <table>
+                    <tr>
+                        <th>Term</th>
+                        <th>defination</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            User
+                        </td>
+                        <td>Someone who interacts with the mobile phone application</td>
+                    </tr>
+                    <tr>
+                        <td>Admin/Administrato</td>
+                        <td>System administrator who is given specific permission for managing and controlling the system
+                        </td>
+                   
+                    <tr>
+                        <td>DEP</td>
+                        <td> Dependency</td>
+                    </tr>
+                    <tr>
+                        <td>PFR
+                        </td>
+                        <td>Primary Functional Requirements
+        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>SFR
+                        </td>
+                        <td>Secondary Functional Requirements</td>
+                    </tr>
+                    <tr>
+                        <td>TAG</td>
+                        <td>A unique, persistent identifier contained in a PLanguage statement [2]</td>
+                    </tr>
+                    <tr>
+                        <td>GIST</td>
+                        <td>A short description to help understanding [2]</td>
+                    </tr>
+                    <tr>
+                        <td>SCALE</td>
+                        <td>The scale of measurement used to quantify the statement [2]</td>
+                    </tr>
+                    <tr>
+                        <td>METER</td>
+                        
+                        <td>The process or device used to measure using the SCALE [2]</td>
+                    </tr>
+                    <tr>
+                        <td>MUST</td>
+                        <td>The minimum level required to avoid failure [2]</td>
+                    </tr>
+                    <tr>
+                        <td>PLAN</td>
+                        <td>The level at which success can be claimed [2]</td>
+                    </tr>
+                    <tr>
+                        <td>WISH</td>
+                        <td>A desirable level of achievement [2]</td>
+                    </tr>
+       
+        
+        
+                </table>
+          
+
+    </section>
+    
+    
+				
+			</div>
+       
+        </div>
+		
+		
+    		
+	
+</body>
+<script>
+    var button = document.getElementById("button");
+    var makepdf = document.getElementById("makepdf");
+  
+    button.addEventListener("click", function () {
+        var mywindow = window.open("", "PRINT", 
+                "height=400,width=600");
+  
+        mywindow.document.write(makepdf.innerHTML);
+  
+        mywindow.document.close();
+        mywindow.focus();
+  
+        mywindow.print();
+        mywindow.close();
+  
+        return true;
+    });
+</script>
+</html>

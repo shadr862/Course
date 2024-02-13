@@ -1,0 +1,75 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+
+/**
+n = number of people
+m = number of relations
+*/
+int n, m, friends[LIM][LIM];
+vector<int> g[LIM];
+int vis[LIM], col[LIM];
+
+void list_input() {
+    scanf("%d %d", &n, &m);
+    for(int i=0; i<m; i++) {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+}
+
+//bicolor
+bool dfs(int u, int c) {
+    vis[u] = 1;
+    col[u] = c;
+
+    for(int i=0; i<g[u].size(); i++) {
+        int v = g[u][i];
+        if(col[v] == col[u])
+        {
+            return false;
+        }
+        if(vis[v]) continue;
+        if(!dfs(v, 3-c)) return false;
+    }
+
+    return true;
+}
+
+int main() {
+    list_input();
+    memset(vis, 0, sizeof vis);
+
+    bool bicolorable = true;
+    for(int u=1; u<=n; u++) {
+        if(!vis[u]) {
+            if(dfs(u, 1)==0) {
+                cout<<"NOt biclolorable"<<endl;
+                return 0;
+            }
+        }
+    }
+    cout<<"biclolorable"<<endl;
+}
+
+/**
+13 15
+1 2
+1 3
+1 4
+1 10
+4 5
+4 6
+5 7
+5 8
+6 8
+7 9
+9 8
+10 11
+11 7
+11 12
+11 13
+*/

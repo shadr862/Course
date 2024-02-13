@@ -1,0 +1,133 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+//#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1e9+7;
+const int N = (ll) 1e6;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+vector<ll> adj[N];
+ll color[N];
+//cycle detection in directed graph
+bool DFSPre(ll source)
+{
+
+    color[source]=1;
+    for(ll i=0;i<adj[source].size();i++)
+    {
+        ll k=adj[source][i];
+        if(color[k]==2)continue;
+        if(color[k]==1)
+        {
+            return true;
+        }
+        if(DFSPre(k)) return 1;
+    }
+    color[source]=2;
+    return false;
+
+}
+inline void add(ll a,ll b)
+{
+    adj[a].pb(b);
+}
+
+
+inline void solve()
+{
+
+      ll n,m;
+      cin>>n>>m;
+
+     for(ll i=0;i<m;i++)
+     {
+         ll x,y;
+         cin>>x>>y;
+         add(x,y);
+     }
+
+
+     for(ll i=1;i<=n;i++)
+     {
+         if(!color[i])
+         {
+             if(DFSPre(i,0))
+             {
+                 cout<<"Cycle detected"<<endl;
+                 return ;
+             }
+         }
+     }
+
+     cout<<"Cycle not  detected"<<endl;
+
+
+
+
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+
+        solve();
+
+    }
+
+	return 0;
+}
+
+
+/*
+1
+9 10
+1 3
+1 4
+2 1
+4 5
+4 6
+5 8
+8 6
+5 7
+7 9
+9 8
+
+
+
+
+
+
+*/
+
+
+/*
+1
+9 11
+1 3
+1 4
+2 1
+4 5
+4 6
+5 8
+8 6
+5 7
+7 9
+9 8
+8 4
+
+
+
+
+
+
+*/

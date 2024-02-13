@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1618664853 source:c:\users\shad\desktop\dynarr\prosortedarray\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1618664853 c:\users\shad\desktop\dynarr\prosortedarray\sortedtype.h
+

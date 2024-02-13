@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1614872090 source:c:\users\shad\desktop\dynarr\dynarr\main.cpp
+	<iostream>
+	"dynarr1.cpp"
+
+1614872041 c:\users\shad\desktop\dynarr\dynarr\dynarr.h
+
+1614872041 source:c:\users\shad\desktop\dynarr\dynarr\dynarr.cpp
+	"dynarr.h"
+	<iostream>
+
+1614872041 source:c:\users\shad\desktop\dynarr\dynarr\dynarr1.cpp
+	"dynarr1.h"
+	<iostream>
+
+1614872074 c:\users\shad\desktop\dynarr\dynarr\dynarr1.h
+
+1614872041 source:c:\users\shad\desktop\dynarr\dynarr\main1.cpp
+	<iostream>
+	"dynarr.cpp"
+
+1614872041 c:\users\shad\desktop\dynarr\dynarr\dynarr.cpp
+	"dynarr.h"
+	<iostream>
+
+1614872041 c:\users\shad\desktop\dynarr\dynarr\dynarr1.cpp
+	"dynarr1.h"
+	<iostream>
+

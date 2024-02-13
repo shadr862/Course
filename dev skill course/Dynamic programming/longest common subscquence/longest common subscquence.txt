@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+#define LIM 1010
+#define ll long long
+using namespace std;
+
+
+ll dp[LIM][LIM],N,M;
+string A,B;
+
+ll f(ll i,ll j)
+{
+   if(i==N|| j==M) return 0;
+   if(dp[i][j]!=-1) return dp[i][j];
+   ll ans=0;
+   if(A[i]==B[j])ans=max(ans,1+f(i+1,j+1));
+   ans=max({ans,f(i+1,j),f(i,j+1)});
+
+   return dp[i][j]=ans;
+
+}
+int main() {
+
+    while(getline(cin,A))
+    {
+        getline(cin,B);
+
+        N=A.size();
+        M=B.size();
+        memset(dp,-1,sizeof dp);
+        cout<<f(0,0)<<endl;
+    }
+
+
+
+    return 0;
+}
+
+
+abdssdlks
+asdkfkdks

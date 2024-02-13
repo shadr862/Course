@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+
+int n, cap, coin[LIM];
+int dp[LIM][LIM],dr[LIM][LIM];
+
+int f(int in, int rem) {
+
+    if(rem==0)
+    {
+        dr[in][rem]=1;
+        return 1;
+    }
+    if(in >= n) 
+        return 0;
+
+    if(dp[in][rem] ==1) 
+        return dp[in][rem];
+    
+    
+    int ans = f(in+1, rem);
+    int cnt=dr[in+1][rem];
+    if(coin[in] <= rem)
+    {
+        int temp=f(in+1,rem-coin[in]);
+        ans|=temp;
+        if(ans==1)
+        {
+            cnt+=dr[in+1][rem-coin[in]];
+        }
+
+    }
+    dr[in][rem]=cnt;
+    return dp[in][rem] = ans;
+}
+
+int main() {
+    scanf("%d %d", &n, &cap);
+    for(int i=0; i<n; i++)
+        scanf("%d", &coin[i]);
+
+    memset(dp, -1, sizeof dp);
+
+    cout << f(0, cap) <<" "<<dr[0][cap]<<" "<<dp[0][cap]<< endl;
+    for(int i=0;i<=cap;i++)
+    {
+        for(int j=0;j<=cap;j++)
+        {
+            cout<<dr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    if(f(0,cap))
+    {
+        cout<<"possible"<<endl;
+    }
+    else
+    {
+        cout<<"not possible"<<endl;
+    }
+}
+
+/*
+5 17
+4 7 2 6 9
+*/count the solution

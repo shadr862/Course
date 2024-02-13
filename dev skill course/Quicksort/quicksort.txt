@@ -1,0 +1,123 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fast_in_out  ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+#define ln "\n"
+#define ll long long
+#define ff first
+#define ss second
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+#define rall(v)   v.rbegin(),v.rend()
+#define array(something, size) something, something + size
+#define sz(a) a.size()
+#define sqr(x) (x)*(x)
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 1e9;
+ll c=0;
+
+ll A[100];
+
+struct point{
+    double x,y;
+};
+
+double dis(point A,point B)
+{
+    double p=sqrt(sqr(B.x-A.x)+sqr(B.y-A.y));
+    return p;
+}
+
+
+
+ll gcd(ll a,ll b)
+{
+    if(b==0) return a;
+
+    return gcd(b,a%b);
+}
+
+ll pow(ll a, ll b) {
+    if(!b) return 1;
+    if(b%2) return (a*pow(a, b-1)) % mod;
+    ll cur = pow(a, b/2);
+    return (cur*cur) % mod;
+}
+ll Merge(ll left ,ll rgt)
+{
+    ll p=A[rgt];
+    ll i=left-1;
+    ll j=left;
+
+   for (int j = left; j <= rgt - 1; j++)
+    {
+        if (A[j] < p)
+        {
+            i++;
+            swap(A[i], A[j]);
+        }
+    }
+    swap(A[i+1],A[rgt]);
+    return i+1;
+}
+
+
+void QuickSort(int lft, int rgt) {
+    if(lft >= rgt) return ;
+    ll md=Merge(lft, rgt);
+    QuickSort(lft, md-1);
+    QuickSort(md+1, rgt);
+
+}
+void quickSort(int lft, int rgt,ll k) {
+    if(lft >= rgt) return ;
+    ll md=Merge(lft, rgt);
+    if(k<=md-1)quickSort(lft, md-1,k);
+    else if(k>=md+1) quickSort(md+1, rgt,k);
+
+}
+
+
+
+void sol()
+{
+    ll n,k;
+    cin>>n>>k;
+    for(ll i=0;i<n;i++)
+    {
+        cin>>A[i];
+    }
+   // QuickSort(0,n-1);
+    quickSort(0,n-1,k-1);
+    cout<<A[k-1]<<endl;
+
+     for(ll i=0;i<n;i++)
+    {
+       cout<<A[i]<<endl;
+    }
+}
+void solve()
+{
+   ll x,n;
+   cin>>x>>n;
+   ll sum=1;
+   sum+=(x*(pow(x,n)-1))/(x-1);
+  cout<<sum<<endl;
+}
+int main()
+{
+    fast_in_out;
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	    //cout<<"Case "<<c<<':'<<" ";
+		sol();
+		c++;
+	}
+	return 0;
+}

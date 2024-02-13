@@ -1,0 +1,100 @@
+//https://codeforces.com/contest/1676/problem/G
+#include <bits/stdc++.h>
+#define LIM 4005
+#define mod 32768
+#define ll long long
+
+using namespace std;
+
+vector<ll> adj[LIM];
+
+struct node
+{
+    ll black;
+    ll white;
+};
+vector<node> c;
+
+void DFS(ll s,ll p)
+{
+   
+    for(auto x:adj[s])
+    {
+        DFS(x,s);
+    }
+
+    if(p!=-1)
+    {
+        c[p].white+=c[s].white;
+        c[p].black+=c[s].black;
+    }
+}
+
+void solve()
+{
+    ll n;
+    cin>>n;
+    for(ll i=0;i<=n;i++)
+    {
+        adj[i].clear();
+    }
+
+    for(ll i=2;i<=n;i++)
+    {
+        ll x;
+        cin>>x;
+        adj[x].push_back(i);
+    }
+    c.resize(n+1);
+    for(ll i=1;i<=n;i++)c[i]={0,0};
+
+    string s;
+    cin>>s;
+
+    for(ll i=0;i<s.size();i++)
+    {
+        if(s[i]=='W')
+        {
+            c[i+1].white++;
+        }
+        else
+        {
+            c[i+1].black++;
+        }
+    }
+    DFS(1,-1);
+    ll ans=0;
+
+    for(ll i=1;i<=n;i++)
+    {
+        if(c[i].white==c[i].black)ans++;
+    }
+    cout<<ans<<endl;
+
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	   //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		//c++;
+	}
+	return 0;
+}
+/*
+3
+7
+1 1 2 3 3 5
+WBBWWBW
+2
+1
+BW
+8
+1 2 3 4 5 6 7
+BWBWBWBW
+*/

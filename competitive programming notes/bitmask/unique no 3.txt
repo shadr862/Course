@@ -1,0 +1,39 @@
+1 1 1 2 2 2 3
+01 01 01 10 10 10 11
+    0 1 2 3 4..32
+arr[4,0] 0th bit
+arr[4 4]  1th bit
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n; 
+    cin >> n;
+    int *arr = new int[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    int count[32] = {0};
+    for (int i = 0; i < n; i++)
+    {
+        int number = arr[i];
+        int j = 0;
+        while (number > 0)
+        {
+
+            count[j] += (number & 1);
+            j++;
+            number = number >> 1;
+        }
+    }
+    int ans = 0, position = 1;
+    for (int i = 0; i < 32; i++)
+    {
+        count[i] %= 3;
+        ans += count[i] * position;
+        position = position << 1;
+    }
+    cout << "Unique Number is: " << ans << '\n';
+    return 0;
+}

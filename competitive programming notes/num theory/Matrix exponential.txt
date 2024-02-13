@@ -1,0 +1,113 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 100;
+ll cnt[N+1][6];
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+ ll r,c;
+ ll I[N][N];
+ ll M[N][N];
+ void mul( ll I[][N] ,ll M[][N])
+ {
+     ll res[r][r];
+     for(ll i=0;i<r;i++)
+     {
+        for(ll j=0;j<r;j++)
+        {
+          res[i][j]=0;
+          for(ll k=0;k<r;k++)
+          {
+              res[i][j]+=I[i][k]*M[k][j];
+          }
+        }
+     }
+     for(ll i=0;i<r;i++)
+     {
+         for(ll j=0;j<r;j++)
+         {
+             I[i][j]=res[i][j];
+         }
+     }
+
+
+ }
+ void power(ll n)
+ {
+
+     while(n)
+     {
+         if(n%2==1)
+         {
+             mul(I,M);
+             n--;
+         }
+         else{
+            mul(M,M);
+            n=n/2;
+         }
+     }
+ }
+
+inline void solve1()
+{
+
+  cin>>r;
+  for(ll i=0;i<r;i++)
+  {
+      for(ll j=0;j<r;j++)
+      {
+          if(i==j)I[i][j]=1;
+          else{
+            I[i][j]=0;
+          }
+      }
+  }
+  for(ll i=0;i<r;i++)
+  {
+      for(ll j=0;j<r;j++)
+      {
+          cin>>M[i][j];
+      }
+  }
+  ll p;
+  cin>>p;
+  power(p);
+   for(ll i=0;i<r;i++)
+  {
+      for(ll j=0;j<r;j++)
+      {
+          cout<<I[i][j]<<" ";
+      }
+      cout<<endl;
+  }
+
+}
+
+int main()
+{
+
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+
+       solve1();
+
+    }
+
+
+}

@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using  namespace  std;
+bool prime(int n)
+{
+    if(n<2)return false;
+    if(n<=3)return true;
+    if(n%2==0)return false;
+    for(int i=3;i*i<=n;i+=2)
+    {
+        if(n%i==0)return false;
+    }
+    return true;
+}
+
+// Graph Grid //
+int dx[]={-1,0,1,0};
+int dy[]={0,1,0,-1};
+
+string ss;
+void num_to_str(int num)
+{
+    if(num)
+    {
+        num_to_str((num-1)/26);
+        ss+=('a'+ (num-1)%26);
+    }
+}
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        string ans;
+        int i=1;
+       while(1)
+       {
+           ss="";
+           num_to_str(i);
+           int pos=s.find(ss);
+           if(pos==-1)
+           {
+               ans=ss;
+               break;
+           }
+           i++;
+ 
+       }
+       cout<<ans<<endl;
+    }
+}

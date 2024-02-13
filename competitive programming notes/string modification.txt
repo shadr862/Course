@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define p pair<int,int>
+typedef long long ll;
+int main()
+{
+
+
+    ll n, m, num, tc, t = 1;
+    cin>>tc;
+
+
+    while (tc--) {
+        cin>>num;
+        string str, temp;
+        cin >> str;
+        temp = str;
+        sort(temp.begin(), temp.end());
+
+
+        ll pos = 1, ln = str.length();
+        string ans = str;
+        for (ll i = 1; i < ln; ++i) {
+            if(str[i] == temp[0]) {
+                string s1 = str.substr(0, i);
+                string s2 = str.substr(i, ln);
+                //cout << s1 << " " << s2 << endl;
+                if((n-s2.length()+1) %2==0)
+                    reverse(s1.begin(), s1.end());
+                s2 += s1;
+               
+
+                if(s2 < ans) {
+
+                    ans = s2;
+                    pos = i + 1;
+                }
+
+            }
+        }
+
+        cout << ans << endl;
+        cout << pos << endl;
+    }
+}

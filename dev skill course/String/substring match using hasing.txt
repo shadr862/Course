@@ -1,0 +1,81 @@
+#include <bits/stdc++.h>
+#define LIM 4005
+#define mod 32768
+#define ll unsigned long long int
+
+using namespace std;
+
+
+
+
+
+void solve()
+{
+
+    string s,s1;
+    cin>>s>>s1;
+
+    ll a=s.size();
+    ll b=s1.size();
+
+    ll Ap=1,Bp=1;
+
+    for(ll i=1;i<b;i++)
+    {
+        Ap*=26;
+        Bp*=31;
+    }
+    ll h1=0,h2=0;
+    for(int i=0;i<b;i++)
+    {
+        h1=h1*26+s1[i];
+        h2=h2*31+s1[i];
+    }
+
+    //cout<<h1<<" "<<h2<<endl;
+    ll H1=0,H2=0;
+    for(int i=0;i<a;i++)
+    {
+        int p=i-b;
+        if(p>=0)
+        {
+            H1-=Ap*s[p];
+            H2-=Bp*s[p];
+        }
+        H1=H1*26+s[i];
+        H2=H2*31+s[i];
+        //cout<<H1<<" "<<H2<<endl;
+        if(i>=b && H1==h1 && H2==h2)
+        {
+            cout<<"Match"<<endl;
+            return ;
+        }
+    }
+
+
+     cout<<"Not Match"<<endl;
+
+
+
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	   //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		//c++;
+	}
+	return 0;
+}
+
+/*
+1
+abcdesdjksfhgksj
+jks
+
+*/

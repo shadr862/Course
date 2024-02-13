@@ -1,0 +1,93 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 1e5+5;
+
+ll vis[N];
+vector<ll> adj[N];
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+ll parent[N];
+ll cnt[N];
+void inti(ll n)
+{
+    for(ll i=0;i<n;i++)
+    {
+        parent[i]=i;
+        cnt[i]=1;
+    }
+}
+
+ll find(ll u)
+{
+    if(u==parent[u])return u;
+    else{
+       return parent[u]=find(parent[u]);
+    }
+}
+void make_union(ll u,ll v)
+{
+    ll p=find(u);
+    ll q=find(v);
+    if(p!=q)
+    {
+        parent[q]=p;
+        cnt[p]+=cnt[q];
+    }
+}
+
+ll size(ll u)
+{
+    if(u==parent[u])return cnt[u];
+    else return size(parent[u]);
+}
+inline void solve1()
+{
+  ll n,m;
+  while(scanf("%d%d",&n,&m)&&(n+m)>0)
+  {
+      inti(n);
+
+      for(ll i=1;i<=m;i++)
+      {
+          ll k;
+          cin>>k;
+          ll f;
+          cin>>f;
+          for(ll i=2;i<=k;i++)
+          {
+              ll u;
+              cin>>u;
+              make_union(f,u);
+          }
+      }
+      cout<<size(0)<<endl;
+  }
+}
+int main()
+{
+
+    ll t;
+    //cin>>t;
+
+   // while(t--)
+    {
+
+       solve1();
+
+    }
+
+
+}

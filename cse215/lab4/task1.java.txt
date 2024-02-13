@@ -1,0 +1,30 @@
+package javaapplication2;
+
+public class task1 {
+    public static int getPentagonalNumber(int n)
+    {
+        int r;
+        r=(n*(3*n-1))/2;
+        return r;
+    }
+    public static void main(String[] args)
+    {
+        
+        int r,i,c=1;
+        for(i=1;i<=100;i++)
+        {
+            r=getPentagonalNumber(i);
+             System.out.printf("%-7d ",r);
+                c++;
+           if(c%10==0)
+           {
+                System.out.println();
+                c=c/10;
+           }
+           
+        }
+        
+        
+    }
+    
+}

@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+using namespace std;
+
+int n,m;
+vector<int> g[LIM];
+int vis[LIM];
+
+void list_input() {
+    memset(vis, 0, sizeof vis);
+    scanf("%d %d", &n, &m);
+    for(int i=1; i<=n; i++) g[i].clear();
+
+    for(int i=0; i<m; i++) {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        g[u].push_back(v);
+    }
+}
+
+bool bfs(int root) {
+    queue<int> q;
+    vis[root]=1;
+    q.push(root);
+
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int i=0; i<g[u].size(); i++) {
+            int v = g[u][i];
+
+            if(vis[v])
+            {
+                cout<<u<<" "<<v<<endl;
+                return 1;
+            }
+            vis[v]=1;
+            q.push(v);
+        }
+    }
+    return false;
+}
+
+
+
+
+
+int main() {
+    list_input();
+    int f=1;
+    for(int u=1; u<=n; u++) {
+        if(!vis[u]) {
+            if(bfs(u)==1){
+                cout<<"Cycle detected"<<endl;
+                f=0;
+                break;
+            }
+        }
+    }
+    if(f==1)cout<<"Cycle not detected"<<endl;
+
+}
+
+
+
+
+
+
+/*
+9 10
+1 3
+1 4
+2 1
+4 5
+4 6
+5 8
+8 6
+5 7
+7 9
+9 8
+*/
+
+
+/*
+
+9 11
+1 3
+1 4
+2 1
+4 5
+4 6
+5 8
+8 6
+5 7
+7 9
+9 8
+8 4
+
+*/

@@ -1,0 +1,117 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 10005;
+
+ll vis[N];
+vector<ll> adj[N];
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+ll parent[N];
+ll parent1[N];
+
+
+ll find(ll u)
+{
+    if(u==parent[u])return u;
+    else{
+       return parent[u]=find(parent[u]);
+    }
+}
+
+ll find1(ll u)
+{
+    if(u==parent1[u])return u;
+    else{
+       return parent1[u]=find1(parent1[u]);
+    }
+}
+
+
+
+inline void solve1()
+{
+   ll n,m,m1;
+   cin>>n>>m>>m1;
+   for(ll i=1;i<=n;i++)
+   {
+     parent[i]=i;
+     parent1[i]=i;
+   }
+   for(ll i=1;i<=m;i++)
+   {
+       ll u,v;
+       cin>>u>>v;
+       ll p=find(u);
+       ll q=find(v);
+       if(p!=q)
+       {
+          parent[q]=p;
+       }
+
+   }
+
+    for(ll i=1;i<=m1;i++)
+   {
+
+       ll u,v;
+       cin>>u>>v;
+       ll p=find1(u);
+       ll q=find1(v);
+       if(p!=q)
+       {
+          parent1[q]=p;
+       }
+
+   }
+
+   vector<pair<ll,ll>> v;
+   for(ll i=1;i<=n;i++)
+   {
+       for(ll j=i+1;j<=n;j++)
+       {
+           ll p=find(i);
+           ll q=find(j);
+           ll u=find1(i);
+           ll v1=find1(j);
+           if(p!=q && u!=v1)
+           {
+               v.pb({i,j});
+               parent1[v1]=u;
+               parent[q]=p;
+           }
+       }
+   }
+   cout<<v.size()<<endl;
+   for(auto x:v)
+   {
+       cout<<x.first<<" "<<x.second<<endl;
+   }
+}
+int main()
+{
+
+    ll t;
+    //cin>>t;
+
+   // while(t--)
+    {
+
+       solve1();
+
+    }
+
+
+}

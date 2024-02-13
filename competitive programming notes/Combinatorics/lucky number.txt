@@ -1,0 +1,27 @@
+https://codeforces.com/problemset/problem/630/C
+#include <bits/stdc++.h>
+using namespace std;
+#define p pair<long long,long long>
+typedef long long ll;
+const ll INF=1e18;
+ll mx=INT_MIN;
+ 
+void solve()
+{
+  ll n,ans=0,k=2;
+  cin>>n;
+  for(ll i=1;i<=n;i++)
+  {
+      ans+=k;
+      k*=2;
+  }
+  cout<<ans<<endl;
+ 
+ 
+ 
+}
+ 
+int main()
+{
+    solve();
+}

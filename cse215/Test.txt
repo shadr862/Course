@@ -1,0 +1,63 @@
+package rm;
+import java.util.*;
+public class Test {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int x=7;
+		GeometricObject geo[]=new GeometricObject[7];
+		int n;
+		for(int i=0;i<7;i++)
+		{
+			n=sc.nextInt();
+			if(i==1)
+			{
+				try {
+				double side,height;
+				side=sc.nextDouble();
+				height=sc.nextDouble();
+				geo[i]= new Rhombus(side,height);
+				}
+				catch (IllegalArgumentException ex)
+				{
+					System.out.println(ex);
+				}
+				
+			}
+			else
+			{
+				try
+				{
+				double a,b,h;
+				a=sc.nextDouble();
+				b=sc.nextDouble();
+				h=sc.nextDouble();
+				geo[i]=new Trapezoid(a,b,h);
+				}
+				catch (IllegalArgumentException ex)
+				{
+					System.out.println(ex);
+				}
+				
+			}
+			java.io.File file=new java.io.File("Scores.txt");
+			if(file.exists())
+			{
+				System.out.println("file already exist");
+				System.exit(1);
+			}
+			java.io.PrintWriter wrt = new java.io.PrintWriter(file);
+			for(int j=0;j<7;j++)
+			{
+				wrt.print(geo[j].toString());
+			}
+			wrt.close();
+			Scanner sc1=new Scanner(file);
+			while(sc1.hasNext())
+			{
+				String sw=sc1.nextLine();
+				System.out.println(sw);
+			}
+			sc.close();
+			}
+		}
+	}

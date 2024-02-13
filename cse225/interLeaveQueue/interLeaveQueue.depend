@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1630862854 source:c:\users\shad\desktop\dynarr\interleavequeue\quetype.cpp
+	"quetype.h"
+	<iostream>
+
+1630862854 c:\users\shad\desktop\dynarr\interleavequeue\quetype.h
+
+1630862117 source:c:\users\shad\desktop\dynarr\interleavequeue\stacktype.cpp
+	"StackType.h"
+	<iostream>
+
+1630862247 c:\users\shad\desktop\dynarr\interleavequeue\stacktype.h
+
+1630865398 source:c:\users\shad\desktop\dynarr\interleavequeue\main.cpp
+	<iostream>
+	<iostream>
+	<string>
+	"quetype.cpp"
+	"StackType.cpp"
+	"UnsortedType.cpp"
+
+1630862854 c:\users\shad\desktop\dynarr\interleavequeue\quetype.cpp
+	"quetype.h"
+	<iostream>
+
+1630862117 c:\users\shad\desktop\dynarr\interleavequeue\stacktype.cpp
+	"StackType.h"
+	<iostream>
+
+1630865557 source:c:\users\shad\desktop\dynarr\interleavequeue\unsortedtype.cpp
+	<iostream>
+	"UnsortedType.h"
+
+1630865549 c:\users\shad\desktop\dynarr\interleavequeue\unsortedtype.h
+
+1630865557 c:\users\shad\desktop\dynarr\interleavequeue\unsortedtype.cpp
+	<iostream>
+	"UnsortedType.h"
+

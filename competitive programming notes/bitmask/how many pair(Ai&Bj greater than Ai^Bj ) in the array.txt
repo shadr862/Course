@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define ll long long int
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1000000007;
+const int N = (int) 1e5;
+ 
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+ 
+int fo[N], fe[N];
+ 
+ 
+void solve()
+{
+ ll n,c=0,sum=0;
+ cin>>n;
+ ll arr[n];
+ for(ll i=0;i<n;i++)
+ {
+     cin>>arr[i];
+ }
+ vector<bool> vis(n,false);
+  for(ll i=31;i>=0;i--)
+ {
+     c=0;
+     for(ll j=0;j<n;j++)
+     {
+         if((1<<i)&(arr[j])&& !vis[j])
+         {
+             c++;
+             vis[j]=true;
+ 
+         }
+     }
+     sum=sum+(c*(c-1))/2;
+ }
+ cout<<sum<<endl;
+ 
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+ 
+    }
+ 
+	return 0;
+}

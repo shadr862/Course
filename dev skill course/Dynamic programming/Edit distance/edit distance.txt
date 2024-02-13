@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+char A[LIM],B[LIM];
+int N,M;
+int dp[LIM][LIM],dr[LIM][LIM];
+
+int f(int i, int j) {
+    //cout<<"in "<<i<<" "<<j<<endl;
+    if(i==N)return M-j;
+    if(j==M)return N-i;
+    if(dp[i][j]!=-1)return dp[i][j];
+
+    int ans=INT_MAX;
+
+    if(A[i]==B[j])
+        ans=f(i+1,j+1);
+    else
+        ans=min({1+f(i+1,j+1),1+f(i,j+1),1+f(i+1,j)});
+   //cout<<"out "<<i<<" "<<j<<" "<<ans<<endl;
+   return dp[i][j]=ans;
+
+}
+
+int main() {
+    cin>>A>>B;
+
+    N=strlen(A);
+    M=strlen(B);
+    memset(dp,-1,sizeof dp);
+    cout<<f(0,0)<<endl;
+
+}
+
+/*
+kitten
+sitting
+*/

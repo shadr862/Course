@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1616080194 source:c:\users\shad\desktop\dynarr\sortedtype\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1616076225 c:\users\shad\desktop\dynarr\sortedtype\sortedtype.h
+
+1616080383 source:c:\users\shad\desktop\dynarr\sortedtype\main.cpp
+	<iostream>
+	"SortedType.cpp"
+	"timeStamp.h"
+
+1616080194 c:\users\shad\desktop\dynarr\sortedtype\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1616080158 source:c:\users\shad\desktop\dynarr\sortedtype\timestamp.cpp
+	"timeStamp.h"
+	<iostream>
+
+1616079160 c:\users\shad\desktop\dynarr\sortedtype\timestamp.h
+

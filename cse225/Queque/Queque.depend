@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1616680554 source:c:\users\shad\desktop\dynarr\queque\queuetype.cpp
+	"QueueType.h"
+	<iostream>
+
+1616680166 c:\users\shad\desktop\dynarr\queque\queuetype.h
+
+1616761595 source:c:\users\shad\desktop\dynarr\queque\main.cpp
+	<iostream>
+	<string>
+	"quetype.cpp"
+	"StackType.cpp"
+
+1616680554 c:\users\shad\desktop\dynarr\queque\queuetype.cpp
+	"QueueType.h"
+	<iostream>
+
+1616760644 source:c:\users\shad\desktop\dynarr\queque\quetype.cpp
+	"quetype.h"
+	<iostream>
+
+1616760734 c:\users\shad\desktop\dynarr\queque\quetype.h
+
+1616760107 source:c:\users\shad\desktop\dynarr\queque\stacktype.cpp
+	"StackType.h"
+	<iostream>
+
+1616760270 c:\users\shad\desktop\dynarr\queque\stacktype.h
+
+1616760644 c:\users\shad\desktop\dynarr\queque\quetype.cpp
+	"quetype.h"
+	<iostream>
+
+1616760107 c:\users\shad\desktop\dynarr\queque\stacktype.cpp
+	"StackType.h"
+	<iostream>
+

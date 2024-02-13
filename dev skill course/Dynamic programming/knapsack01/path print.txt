@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+
+int n, cap, V[LIM], W[LIM];
+int dp[LIM][LIM], dr[LIM][LIM];
+
+/// knapsack path print
+
+int f(int in, int rem) {
+    if(in >= n) return 0;
+    if(dp[in][rem] != -1) return dp[in][rem];
+    int ans = f(in+1, rem);
+    dr[in][rem] = 0;
+    if(W[in] <= rem) {
+        int cur = V[in]+f(in+1, rem-W[in]);
+        if(cur > ans) {
+            ans = cur;
+            dr[in][rem] = 1;
+        }
+    }
+    return dp[in][rem] = ans;
+}
+
+void g(int in, int rem) {
+    if(in >= n) {
+        return;
+    }
+    if(dr[in][rem]) {
+        printf("%d\n", in);
+        g(in+1, rem-W[in]);
+    }
+    else {
+        g(in+1, rem);
+    }
+}
+
+int main() {
+    scanf("%d %d", &n, &cap);
+    for(int i=0; i<n; i++)
+        scanf("%d %d", &V[i], &W[i]);
+
+    memset(dp, -1, sizeof dp);
+    cout << f(0, cap) << endl;
+    g(0, cap);
+}
+
+/*
+6 5
+2 1
+3 2
+1 1
+3 3
+2 2
+3 3
+*/
+

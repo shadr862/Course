@@ -1,0 +1,134 @@
+#include <bits/stdc++.h>
+#define LIM 5004LL
+#define ll long long
+#define ff first
+#define ss  second
+#define INF 1000000009
+
+using namespace std;
+
+ll dx[]={-1,+1,+0,+0};
+ll dy[]={+0,+0,+1,-1};
+ll c=1;
+
+
+struct node {
+    ll v, w;
+    node(){}
+    node(ll vv,ll ww){v=vv;w=ww;}
+};
+
+bool operator < (const node &u, const node &v) {
+    return u.w > v.w;
+}
+
+vector<pair<ll,ll>> v[LIM];
+ll dis1[LIM],dis2[LIM];
+
+void BFS(ll s,ll n)
+{
+    for(ll i=1;i<=n;i++)
+    {
+        dis1[i]=INT_MAX;
+
+    }
+
+    queue<node> q;
+    q.push({s,0});
+    dis1[s]=0;
+
+    while(!q.empty())
+    {
+        node u=q.front();
+        q.pop();
+        ll U;
+        U=u.v;
+
+        for(auto x:v[U])
+        {
+//cout<<"from: "<<U<<" to :"<<x.ff<<" "<<dis1[x.ff]<<" "<<x.ss+dis1[U]<<endl;
+
+            if(x.ss+dis1[U]<dis1[x.ff])
+            {
+//cout<<"from: "<<U<<" to :"<<x.ff<<" "<<x.ss+dis1[U]<<endl;
+                dis1[x.ff]=x.ss+dis1[U];
+                q.push({x.ff,dis1[x.ff]});
+
+            }
+
+
+        }
+    }
+
+
+
+}
+
+
+
+
+
+
+void solve()
+{
+   ll n,r;
+   cin>>n>>r;
+
+   for(ll i=0;i<=n;i++)
+   {
+       v[i].clear();
+   }
+
+
+   for(ll i=0;i<r;i++)
+   {
+       ll u,v1,w;
+       cin>>u>>v1>>w;
+       v[u].push_back({v1,w});
+       v[v1].push_back({u,w});
+
+   }
+   BFS(1,n);
+
+   for(ll i=1;i<=n;i++)dis2[i]=dis1[i];
+
+   BFS(n,n);
+
+
+
+   ll ans=INF;
+   for(ll i=1;i<=n;i++)
+   {
+       for(auto x:v[i])
+       {
+           ll d=dis2[i]+dis1[x.ff]+x.ss;
+           //cout<<dis2[i]<<" "<<dis1[x.ff]<<" "<<x.ff<<" "<<x.ss<<" "<<d<<endl;
+           if(d>dis2[n])
+           {
+               ans=min(ans,d);
+           }
+       }
+   }
+
+
+
+
+
+    cout<<"Case "<<c<<':'<<" "<<ans<<endl;
+
+
+}
+
+
+int main()
+{
+    ll t;
+    cin>>t;
+	while(t--)
+	{
+	    //cout<<"Case "<<c<<':'<<" ";
+		solve();
+		c++;
+	}
+	return 0;
+}

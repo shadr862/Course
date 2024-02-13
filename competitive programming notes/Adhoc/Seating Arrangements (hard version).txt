@@ -1,0 +1,106 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define ff first
+#define ss second
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+bool sorta(const pair<int, int> &a, const pair<int, int> &b)
+ {
+     return (a.second < b.second);
+ }
+bool sortd(const pair<int, int> &a, const pair<int, int> &b)
+ {
+     return (a.second > b.second);
+ }
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 200;
+
+ll vis[N];
+vector<ll> adj[N];
+bool p[N];
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+void prime()
+{
+    mem(p,1);
+    p[0]=p[1]=0;
+    for(ll i=2;i*i<=N;i++)
+    {
+        if(p[i])
+        {
+            for(ll j=i*i;j<=N;j=j+i)
+            {
+                p[j]=0;
+            }
+
+        }
+
+    }
+}
+ll res(vector<pair<ll,ll> > v,ll m)
+{
+    sort(all(v),sorta);
+    ll c=0;
+    for(ll i=1;i<m;i++)
+    {
+
+        for(ll j=0;j<i;j++)
+        {
+            if(v[i].ff>v[j].ff)
+            {
+                c++;
+            }
+
+        }
+
+    }
+    return c;
+}
+void solve()
+{
+    ll n,m;
+    cin>>n>>m;
+    vector<pair<ll,ll> > v(n*m);
+    for(ll i=0;i<n*m;i++)
+    {
+        ll x;
+        cin>>x;
+        v[i]={x,i};
+    }
+    sort(all(v));
+    ll ii=0;
+    ll jj=m;
+    ll r=0;
+    for(ll i=0;i<n;i++)
+    {
+        vector<pair<ll,ll> > v1(v.begin()+ii,v.begin()+jj);
+        ii+=m;
+        jj+=m;
+        r+=res(v1,m);
+
+    }
+    cout<<r<<endl;
+
+
+}
+
+int main()
+{
+
+	int t;
+    cin>>t;
+	while(t--)
+	{
+
+		solve();
+	}
+	return 0;
+}

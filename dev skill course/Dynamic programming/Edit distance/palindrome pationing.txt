@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+#define LIM 1004
+
+using namespace std;
+char A[LIM],B[LIM];
+int N,M,c=1;
+int dp[LIM][LIM];
+int dp2[LIM];
+
+int ispalin(int i, int j) {
+
+    if(i>=j) return 1;
+    if(dp[i][j]!=-1)return dp[i][j];
+    if(A[i]==A[j])
+          return dp[i][j]=ispalin(i+1,j-1);
+    return dp[i][j]=0;
+}
+
+int f(int in)
+{
+    if(dp2[in]!=-1) return dp2[in];
+    int  ans=INT_MAX;
+    if(ispalin(0,in))ans=1;
+
+    for(int i=in;i>0;i--)
+    {
+        if(ispalin(i,in))
+        {
+            ans=min(ans,1+f(i-1));
+        }
+    }
+
+   return dp2[in]=ans;
+
+}
+
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        cin>>A;
+        N=strlen(A);
+        memset(dp,-1,sizeof dp);
+        memset(dp2,-1,sizeof dp2);
+        cout<<"Case "<<c<<':'<<" "<<f(N-1)<<endl;
+        c++;
+    }
+
+}

@@ -1,0 +1,47 @@
+
+package javaapplication2;
+
+import java.util.*;
+public class turjo{
+   public static double sumMajorDiagonal(double[][] m)
+   {
+       int i,j;
+       double sum=0;
+       for(i=0;i<m.length;i++)
+           {
+               for(j=0;j<m[i].length;j++)
+                     {
+                         if(i==j)
+                         {
+                             sum=sum+m[i][j];
+                         }
+                     }
+           }
+       return sum;
+                 
+      
+   }
+    
+
+     public static void main(String []args){
+         Scanner sc=new Scanner(System.in);
+         double array[][]=new double[4][4];
+         int i,j;
+         double r;
+         System.out.println("Enter a 4-by-4 matrix row by row:");
+                for(i=0;i<array.length;i++)
+                 {
+                     for(j=0;j<array[i].length;j++)
+                     {
+                         array[i][j]=sc.nextDouble();
+                     }
+                 }
+               
+                  r=sumMajorDiagonal(array); 
+                
+                     System.out.println("Sum of the elements in the major diagonal is "+r);
+                 
+         
+         
+}
+}

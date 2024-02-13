@@ -1,0 +1,38 @@
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp>
+#include <functional> // for less
+#include <bits/stdc++.h>
+using namespace __gnu_pbds;
+using namespace std;
+typedef tree<int, null_type, less<int>, rb_tree_tag,
+             tree_order_statistics_node_update>
+    pbds;
+#define p pair<int,int>
+typedef long long ll;
+const ll INF=1e18;
+
+
+
+int main()
+{
+
+
+    ll n,m;
+    cin>>n>>m;
+    if(m==1)
+    {
+        cout<<(n*(n-1))/2<<" "<<(n*(n-1))/2<<endl;
+        return 0;
+    }
+    ll max=((n-m+1)*(n-m))/2;
+    //m-1 team fix 1 person and 1 team have rest of the member.nc2=n*(n-1)/2
+    ll r1=n/m;
+    //equally distribution m team;
+    ll r2=n%m;
+    ll ans1=(r1*(r1-1))/2;
+    //(n+1)c2=n*(n+1)/2
+    ll ans2=(r1*(r1+1))/2;
+    ll ans3=ans1*(m-r2)+ans2*(r2);
+    cout<<ans3<<" "<<max;
+
+}

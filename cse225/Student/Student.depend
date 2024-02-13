@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1617950083 source:c:\users\shad\desktop\dynarr\student\main.cpp
+	<iostream>
+	"UnsortedType.cpp"
+	"Student.h"
+	"SortedType.cpp"
+
+1617943505 source:c:\users\shad\desktop\dynarr\student\unsortedtype.cpp
+	<iostream>
+	"UnsortedType.h"
+
+1617943433 c:\users\shad\desktop\dynarr\student\unsortedtype.h
+
+1617949520 c:\users\shad\desktop\dynarr\student\student.h
+	"UnsortedType.h"
+	<iostream>
+
+1617943505 c:\users\shad\desktop\dynarr\student\unsortedtype.cpp
+	<iostream>
+	"UnsortedType.h"
+
+1617949618 source:c:\users\shad\desktop\dynarr\student\student.cpp
+	<iostream>
+	"Student.h"
+	"vector"
+	"algorithm"
+	"UnsortedType.cpp"
+
+1617960744 source:c:\users\shad\desktop\dynarr\student\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1617949201 c:\users\shad\desktop\dynarr\student\sortedtype.h
+
+1617960744 c:\users\shad\desktop\dynarr\student\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+

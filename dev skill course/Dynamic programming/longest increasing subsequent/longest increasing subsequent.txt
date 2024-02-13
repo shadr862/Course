@@ -1,0 +1,39 @@
+#include bitsstdc++.h
+#define LIM 1010
+#define ll long long
+using namespace std;
+
+
+ll dp[LIM][LIM],N;
+ll A[LIM];
+
+ll f(ll in,ll last)
+{
+   if(in==N)return 0;
+
+   if(dp[in][last]!=-1) return dp[in][last];
+   ll ans=0;
+   if(A[in]last)
+   {
+       ans=max(ans,1+f(in+1,A[in]));
+   }
+
+   ans=max(ans,f(in+1,last));
+   return dp[in][last]=ans;
+}
+int main() {
+
+    cinN;
+    for(ll i=0;iN;i++)
+    {
+        cinA[i];
+    }
+    memset(dp,-1,sizeof dp);
+    coutf(0,0)endl;
+
+    return 0;
+}
+
+
+6
+3 7 5 9 2 4

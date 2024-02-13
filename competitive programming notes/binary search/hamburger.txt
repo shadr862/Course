@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+//#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 2e5+5;
+ll cnt[N+1][6];
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+
+inline void solve1()
+{
+   string st;
+   cin>>st;
+   ll nb,ns,nc;
+   cin>>nb>>ns>>nc;
+   ll pb,ps,pc;
+   cin>>pb>>ps>>pc;
+   ll taka;
+   cin>>taka;
+   ll b=0,s=0,c=0;
+    for(int i=0; i<st.size(); i++)
+    {
+        if(st[i]=='B') b++;
+        else if(st[i]=='S') s++;
+        else c++;
+    }
+
+    ll l=0,r=1e15,ans=0;
+    while(l<r)
+    {
+        ll x,y,z;
+        ll mid=(l+r)/2;
+        x=max(0ll,mid*b-nb);
+        y=max(0ll,mid*s-ns);
+        z=max(0ll,mid*c-nc);
+        ll cost=x*pb+y*ps+z*pc;
+
+
+         if(cost>taka)
+        
+            r=mid-1;
+        }
+        else
+        {
+            ans=mid;
+            l=mid+1;
+        }
+    }
+    cout<<ans-1<<endl;
+
+
+}
+
+int main()
+{
+   // ll t;
+    //cin>>t;
+
+   // while(t--)
+    {
+
+        solve1();
+
+
+    }
+
+	return 0;
+}

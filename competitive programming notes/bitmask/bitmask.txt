@@ -1,0 +1,81 @@
+rightshift=n>>i=n/2^i
+16 8 4 2 1
+10000=16
+1000=8
+100=4
+10=2
+1=1
+0
+
+leftshift=n<<i=n*2^i
+
+16 8 4 2 1
+10=2
+100=4
+1000=8
+10000=16
+
+OR
+5=101
+6=110
+5|6=111=7
+5|5=5
+5|0=5
+
+AND
+5=101
+6=110
+5&6=100=4
+5&5=5
+5&0=0
+
+X-OR
+5=101
+6=110
+5^6=011=3
+5^5=0
+5^0=5
+
+i th set bit
+using right shift
+16 8 4 2 1
+10=1010
+2nd bit set or not
+n=n>>2;
+if(n&1!=0)set bit;
+
+using left shift
+x=1<<2;
+if(x&n!=0)set bit
+
+
+
+counting set bit
+c=0;
+while(n!=0)
+{
+    if(n&1!=0)c++;
+    n=n>>1;
+}
+
+for(i=0;i<32;i++)
+{ 
+    int x=1<<i;
+    if(x&n!=0)c++;
+}
+
+power of two
+16  8   4   2  1
+1000 1000 100 10 1
+if(n&(n-1)==0)power of two
+
+c=0;
+while(n!=0)
+{
+    if(n&1!=0)c++;
+    n=n>>1;
+}
+if(c==1) power of two
+
+
+

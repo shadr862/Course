@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1e9+7;
+const int N = (ll) 1e6;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+vector<ll> adj[N];
+bool vis[N];
+//count node
+int DFSPre(ll source)
+{
+
+    vis[source]=1;
+    ll ans=1;
+    for(ll i=0;i<adj[source].size();i++)
+    {
+        ll k=adj[source][i];
+               if(!vis[k])
+                {
+                   ans+=DFSPre(k);
+                }
+    }
+    return ans;
+}
+inline void add(ll a,ll b)
+{
+    adj[a].pb(b);
+    adj[b].pb(a);
+}
+
+
+inline void solve()
+{
+
+    ll n,m;
+    cin>>n>>m;
+
+     for(ll i=0;i<m;i++)
+     {
+         ll x,y;
+         cin>>x>>y;
+         add(x,y);
+     }
+     vector<ll> com;
+     for(ll i=1;i<=n;i++)
+     {
+         if(!vis[i])
+         {
+             com.pb(DFSPre(i));
+         }
+     }
+
+     cout<<"component size :"<<com.size()<<endl;
+
+     for(ll i=0;i<com.size();i++)
+     {
+         cout<<i+1<<" :"<<com[i]<<endl;
+     }
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+
+        solve();
+
+    }
+
+	return 0;
+}

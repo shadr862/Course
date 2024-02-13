@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+
+int n, cap, V[LIM], W[LIM];
+int dp[LIM][LIM], dr[LIM][LIM];
+
+/// solution count
+int f(int in, int rem) {
+    if(in >= n) {
+        dr[in][rem] = 1;
+        return 0;
+    }
+    if(dp[in][rem] != -1) return dp[in][rem];
+    int ans = f(in+1, rem);
+    int cnt = dr[in+1][rem];
+    if(W[in] <= rem) {
+        int temp = V[in]+f(in+1, rem-W[in]);
+        if(temp > ans) {
+            ans = temp;
+            cnt = dr[in+1][rem-W[in]];
+        }
+        else if(temp == ans) {
+            cnt += dr[in+1][rem-W[in]];
+        }
+    }
+
+    dr[in][rem] = cnt;
+    return dp[in][rem] = ans;
+}
+
+int main() {
+    scanf("%d %d", &n, &cap);
+    for(int i=0; i<n; i++)
+        scanf("%d %d", &V[i], &W[i]);
+
+
+    memset(dp, -1, sizeof dp);
+    cout << f(0, cap) <<" "<<dr[0][cap]<<" "<<dp[0][5]<< endl;
+    for(int i=0;i<=cap;i++)
+    {
+        for(int j=0;j<=cap;j++)
+        {
+            cout<<dr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+}
+
+/*
+6 5
+2 1
+3 2
+1 1
+3 3
+2 2
+2 2

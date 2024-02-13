@@ -1,0 +1,98 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+#define pb push_back
+#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const int mod = 1000000007;
+const int N = (int) 1e5;
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+int fo[N], fe[N];
+
+void solve()
+{
+      ll K,n,m;
+      cin>>K>>n>>m;
+
+      ll a[n],b[m];
+      for(ll i=0;i<n;i++)
+      {
+          cin>>a[i];
+      }
+      for(ll i=0;i<m;i++)
+      {
+          cin>>b[i];
+      }
+      vector<ll> ans;
+      ll i=0,j=0,k=0;
+      while(i<n||j<m)
+      {
+          if(i<n&&j>=m)
+             {
+                ans.pb(a[i]);
+                k++;
+                i++;
+             }
+             else if(j<m&&i>=n)
+             {
+                ans.pb(b[j]);
+                j++;
+                k++;
+             }
+             else
+             {
+                if(a[i]<b[j])
+                {
+                   ans.pb(a[i]);
+                   i++;
+                        k++;
+                }
+                else
+                {
+                  ans.pb(b[j]);
+                  k++;
+                  j++;
+
+                }
+             }
+
+
+
+
+      }
+      for(ll i=0;i<k;i++)
+      {
+          if(ans[i]==0)K++;
+          if(ans[i]>K)
+          {
+              cout<<-1<<endl;
+              return ;
+          }
+
+
+      }
+      for(ll i=0;i<k;i++)
+      {
+          cout<<ans[i]<<" ";
+      }
+      cout<<endl;
+}
+int main()
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        solve();
+
+    }
+
+	return 0;
+}

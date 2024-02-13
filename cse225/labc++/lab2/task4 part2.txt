@@ -1,0 +1,115 @@
+#ifndef DYNARR_H_INCLUDED
+#define DYNARR_H_INCLUDED
+template<class T>
+class dynArr1{
+private:
+   T** arr;
+    int size;
+public:
+    dynArr1();
+    dynArr1(int,int);
+    ~dynArr1();
+    void setValue(int,int,T);
+    T getValue(int,int);
+    void allocate(int,int);
+
+
+
+};
+#endif // DYNARR_H_INCLUDED
+
+
+#include "dynarr1.h"
+#include<iostream>
+using namespace std;
+
+template<class T>
+dynArr1<T>::dynArr1()
+{
+    arr=NULL;
+    size=0;
+}
+
+template<class T>
+dynArr1<T>::dynArr1(int row,int col)
+{
+    arr=new T*[row];
+    for(int i=0;i<row;i++)
+    {
+        arr[i]=new T[col];
+    }
+    size=row;
+
+}
+
+template<class T>
+dynArr1<T>::~dynArr1()
+{
+    for(int i=0;i<size;i++)
+    {
+        delete[] arr[i];
+    }
+    delete[] arr;
+}
+
+template<class T>
+void dynArr1<T>::setValue(int row,int col,T value)
+{
+    arr[row][col]=value;
+}
+
+template<class T>
+T dynArr1<T>::getValue(int row,int col)
+{
+     return arr[row][col];
+}
+
+template<class T>
+void dynArr1<T>::allocate(int row,int col)
+{
+    for(int i=0;i<row;i++)
+    {
+        delete[] arr[i];
+    }
+
+    delete[] arr;
+    arr=new int*[row];
+
+    for(int i=0;i<row;i++)
+    {
+        arr[i]=new int[col];
+    }
+
+}
+
+#include <iostream>
+using namespace std;
+
+#include "dynarr1.cpp"
+int main()
+{
+
+    int row,col;
+    cin>>row>>col;
+    dynArr1<int> ar1();
+    dynArr1<int> ar(row,col);
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+            int n1;
+            cin>>n1;
+            ar.setValue(i,j,n1);
+        }
+    }
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+
+            cout<<ar.getValue(i,j)<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}

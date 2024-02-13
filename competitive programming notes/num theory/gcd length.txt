@@ -1,0 +1,40 @@
+#include extpb_dsassoc_container.hpp  Common file
+#include extpb_dstree_policy.hpp
+#include functional  for less
+#include bitsstdc++.h
+using namespace __gnu_pbds;
+using namespace std;
+typedef treeint, null_type, lessint, rb_tree_tag,
+             tree_order_statistics_node_update
+    pbds;
+#define p pairint,int
+typedef long long ll;
+const ll INF=1e18;
+
+
+
+int main()
+{
+    ll t;
+    cint;
+    while(t--)
+    {
+        ll a,b,c;
+        cin>>a>>b>>c;
+        ll x,y;
+        x=pow(10,c-1);
+        y=pow(10,c-1);
+        while(x(ll)pow(10,a-1))
+        {
+            x=x*2;
+        }
+        while(y(ll)pow(10,b-1))
+        {
+            y=y*3;
+        }
+        cout<<x<<" "<<y<<endl;
+
+    }
+
+
+}

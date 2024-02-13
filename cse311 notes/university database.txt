@@ -1,0 +1,118 @@
+use master
+go 
+create database [Riaz Mehadi]
+go
+
+use [Riaz Mehadi]
+go
+
+create table Department(
+                dept_name varchar(4),
+		building varchar(4),
+		budget tinyint,
+		constraint dp_name primary key(dept_name)
+		)
+
+
+create table Instructor(
+  ID varchar(4) primary key,
+  name varchar(20),
+  dept_name varchar(4),
+  salary bigint,
+  constraint ins_fK foreign key(dept_name) references Department (dept_name)
+
+)
+
+create table Student(
+  ID varchar(4) primary key(ID),
+  name varchar(20),
+  dept_name varchar(4),
+  tot_credt bigint,
+  constraint sts_fK foreign key(dept_name) references Department 
+  )
+
+ create table Advisor(
+        S_id varchar(4) primary key,
+	I_id varchar(4),
+        foreign key (S_id) references Student(ID),
+	foreign key (I_id) references Instructor(ID)
+	)
+
+create table Course(
+    Course_id varchar(4),
+    titel varchar(20),
+    dept_name varchar(4) constraint cou_fK foreign key(dept_name) references Department,
+    credits bigint,
+    primary key(Course_id),
+	)
+
+	
+create table Prereq(
+          course_id varchar(4),
+	  prereq_id varchar(4),
+	  primary key(course_id,prereq_id),
+	  constraint pre_id foreign key (course_id) references Course,
+	  foreign key (prereq_id) references Course(Course_id)
+
+ )
+
+create table Classroom
+ (
+        building nchar(100),
+	room_no tinyint,
+	capacity smallint,
+	primary key(building,room_no)
+  
+ )
+
+ create table time_slot(
+        time_slot_id nchar(100),
+	day nchar(100),
+	start_time varchar(100),
+	end_time varchar(100),
+
+	constraint tm_bg primary key(time_slot_id,day,start_time)
+ )
+
+ create table Section(
+        Course_id varchar(4),
+	Sec_id smallint,
+	Semester varchar(100),
+	Year nchar(100),
+	building nchar(100),
+	room_no tinyint,
+	time_slot_id nchar(100),
+	day nchar(100),
+	start_time varchar(100),
+	
+	primary key(Course_id,Sec_id,Semester,year),
+        foreign key(course_id) references Course(Course_id),
+	foreign key (time_slot_id,day,start_time) references time_slot,
+	constraint cl_rom foreign key(building,room_no) references Classroom
+
+ )
+
+ create table takes(
+        ID varchar(100),
+	Course_id varchar(4),
+	Sec_id smallint,
+	Semester varchar(100),
+	Year nchar(100),
+	grade varchar(100),
+	constraint pk_take primary key(ID,Course_id,Sec_id,Semester,year),
+	foreign key(Course_id,Sec_id,Semester,year) references Section(Course_id,Sec_id,Semester,year)
+
+ )
+ 
+ 
+ 
+ create table teaches(
+        ID varchar(100),
+	Course_id varchar(4),
+	Sec_id smallint,
+	Semester varchar(100),
+	Year nchar(100),
+        primary key(ID,Course_id,Sec_id,Semester,year),
+	constraint fk_teaches foreign key(Course_id,Sec_id,Semester,year) references Section(Course_id,Sec_id,Semester,year)
+
+ )

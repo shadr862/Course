@@ -1,0 +1,77 @@
+https://leetcode.com/problems/binary-search/
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+//#define mp make_pair
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 2e5+5;
+ll cnt[N+1][6];
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+inline int solve()
+{
+
+    int n,target;
+    cin>>n>>target;
+    int nums[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>nums[i];
+    }
+    int index=lower_bound(nums,nums+n,target)-nums;
+        if(index>=n)
+            return -1;
+        if(nums[index]==target)
+            return index;
+
+}
+
+
+inline int solve1()
+{
+    int n,target;
+    cin>>n>>target;
+    int nums[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>nums[i];
+    }
+        int l=0;
+        int r=n-1;
+               while(l<r){
+               int mid=(l+r)/2;
+               if(nums[mid]==target)
+                  return mid;
+               else if(nums[mid]>target)
+                   r=mid-1;
+               else
+                   l=mid+1;
+          }
+           if(nums[l]==target)
+             return l;
+           return -1;
+
+}
+int main()
+{
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+
+        solve1();
+
+
+    }
+
+	return 0;
+}

@@ -1,0 +1,113 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+using namespace std;
+
+int n,m,c=1;
+vector<int> g[LIM],weight[LIM];
+int vis[LIM],dis[LIM];
+
+void list_input() {
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        g[i].clear();
+        weight[i].clear();
+    }
+    m=n-1;
+    for(int i=0; i<m; i++) {
+        int u, v, c;
+        scanf("%d %d %d", &u, &v,&c);
+        g[u].push_back(v);
+        g[v].push_back(u);
+        weight[u].push_back(c);
+        weight[v].push_back(c);
+    }
+}
+void clr()
+{
+    for( int i = 0 ; i < n ; i++ )
+    {
+        vis[i] = 0;
+        dis[i] = 0;
+    }
+}
+
+void dfs(int u) {
+
+    vis[u]=1;
+    for(int i=0; i<g[u].size(); i++)
+    {
+        int v=g[u][i];
+        if(vis[v])continue;
+        dis[v]=dis[u]+weight[u][i];
+        dfs(v);
+    }
+
+
+
+
+}
+
+
+void solve()
+{
+    list_input();
+    dfs(0);
+
+    int f_node,mx=-1;
+
+    for(int i=0;i<n;i++)
+    {
+        if(mx<dis[i])
+        {
+            mx=dis[i];
+            f_node=i;
+        }
+    }
+
+    clr();
+    mx=0;
+    dfs(f_node);
+
+    for(int i=0;i<n;i++)
+    {
+        if(mx<dis[i])
+        {
+            mx=dis[i];
+            f_node=i;
+        }
+    }
+
+   cout<<"Case "<<c<<": "<<mx<<endl;
+    clr();
+}
+
+
+
+int main() {
+  int t;
+  cin>>t;
+  while(t--)
+  {
+      solve();
+      c++;
+  }
+
+}
+
+
+
+
+
+/*
+2
+4
+0 1 20
+1 2 30
+2 3 50
+5
+0 2 20
+2 1 10
+0 3 29
+0 4 50
+
+*/

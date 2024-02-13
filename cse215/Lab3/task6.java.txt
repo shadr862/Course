@@ -1,0 +1,26 @@
+package contest;
+import java.util.Scanner;
+public class Contest {
+    public static void main(String[] args)
+    {
+       int i,j,k,end=7,r=0,l;
+       for(i=1;i<=128;i+=i)
+       {
+           for(j=0;j<end;j++)
+           {
+               System.out.print("    ");
+           }
+           for(k=1;k<=i;k+=k)
+           {
+               System.out.printf("%4d",k);
+           }
+           for(l=r;l>0;l/=2)
+           {
+               System.out.printf("%4d",l);
+           }
+           System.out.println();
+           end--;
+           r=i;
+       }
+    } 
+}

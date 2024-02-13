@@ -1,0 +1,55 @@
+package rm;
+
+public class Trapezoid extends GeometricObject implements Cloneable {
+
+	private double a;
+	private double b;
+	private double h;
+	
+	
+	public Trapezoid(double a, double b, double h) {
+		super();
+		 setA( a);
+		 setB( b);
+		this.h = h;
+	}
+	
+
+	public void setA(double a) 
+		throws IllegalArgumentException {
+			if(a>=0)
+			{
+				this.a=a;
+			}
+			else
+			{
+				throw new IllegalArgumentException("cannot negative");
+			}
+	}
+
+
+	public void setB(double b) throws IllegalArgumentException {
+		if(b>=0)
+		{
+			this.b=b;
+		}
+		else
+		{
+			throw new IllegalArgumentException("cannot negative");
+		}
+	}
+
+
+	@Override
+	public double getArea() {
+		double area =.5*( a + b)*h;
+		return area;
+	}
+
+	@Override
+	public double getPerimeter() {
+		// TODO Auto-generated method stub
+		return a+b+h;
+	}
+
+}

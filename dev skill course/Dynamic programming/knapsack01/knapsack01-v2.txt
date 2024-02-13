@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define LIM 1003
+
+using namespace std;
+
+int n, cap, V[LIM], W[LIM],S[LIM];
+int dp[LIM][LIM];
+
+int f(int in, int rem) {
+    if(in >= n) return 0;
+    if(dp[in][rem] != -1) return dp[in][rem];
+    int ans = f(in+1, rem);
+    for(int t=1; t<=S[in]; t++) {
+        if(t*W[in] <= rem)
+            ans = max(ans, t*V[in]+f(in+1, rem-t*W[in]));
+    }
+    return dp[in][rem] = ans;
+}
+
+int main() {
+    scanf("%d %d", &n, &cap);
+    for(int i=0; i<n; i++)
+        scanf("%d %d %d", &V[i], &W[i], &S[i]);
+
+    memset(dp, -1, sizeof dp);
+    cout << f(0, cap) << endl;
+}
+
+/*
+6 5
+2 1 2
+3 2 3
+1 1 3
+3 3 1
+2 2 3
+3 3 2
+*/

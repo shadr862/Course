@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 1e5+5;
+
+bool vis[N];
+vector<ll> adj[N];
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+
+
+
+inline void solve1()
+{
+
+    string s;
+    cin>>s;
+    vector< pair<char,ll> > v;
+    ll a=-1;
+    for(ll i=0;i<s.size();i++)
+    {
+        if(a==-1||v[a].first!=s[i])
+        {
+            v.pb({s[i],1});
+            a++;
+        }
+        else
+        {
+            v[a].second++;
+        }
+    }
+   ll mn=INT_MAX;
+   for(ll i=1;i<a;i++)
+   {
+       if(v[i-1].first!=v[i+1].first)
+       {
+           mn=min(mn,v[i].second+2);
+       }
+   }
+   if(mn==INT_MAX)
+   {
+       cout<<0<<endl;
+   }
+   else
+   {
+       cout<<mn<<endl;
+   }
+
+}
+
+int main()
+{
+
+    ll t;
+    cin>>t;
+
+    while(t--)
+    {
+
+       solve1();
+
+    }
+
+
+}

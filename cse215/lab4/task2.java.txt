@@ -1,0 +1,30 @@
+package javaapplication2;
+
+import java.util.*;
+public class task2 {
+    public static int sumDigits(long n)
+{
+     long sum=0;
+    
+    while(n!=0)
+    {
+        sum=sum+(n%10);
+        n=n/10;
+    }
+    int r=(int)sum;
+    return r;
+
+}
+    public static void main(String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        long num;
+        int r;
+        num=sc.nextLong();
+        r=sumDigits(num);
+        System.out.println(r);
+        
+        
+    }
+    
+}

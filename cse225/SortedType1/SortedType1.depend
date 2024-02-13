@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1630864485 source:c:\users\shad\desktop\dynarr\sortedtype1\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1630864404 source:c:\users\shad\desktop\dynarr\sortedtype1\main.cpp
+	<bits/stdc++.h>
+	"SortedType.cpp"
+
+1630864485 c:\users\shad\desktop\dynarr\sortedtype1\sortedtype.cpp
+	<iostream>
+	"SortedType.h"
+
+1630864485 c:\users\shad\desktop\dynarr\sortedtype1\sortedtype.h
+

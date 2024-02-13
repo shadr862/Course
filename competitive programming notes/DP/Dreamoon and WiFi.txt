@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ln "\n"
+#define ll long long
+#define pb push_back
+#define mp make_pair
+#define mem(x, n) memset(x, n, sizeof(x))
+#define all(x) x.begin(), x.end()
+
+const ll INF=1e18;
+const double pii = acos(-1);
+const ll mod = 1e9+7;
+const ll N = 2e5+5;
+ll cnt[N+1][6];
+
+ll lcm(ll a,ll b)
+{
+    return (a/__gcd(a,b))*b;
+}
+ll vis[200005];
+
+string s1, s2;
+int n, res = 0, de = 1, ans = 0;
+void solve(int ind, int sum ) {
+	if (ind == n) {
+		if (sum == ans)
+			res++;
+		return;
+	}
+	if (s2[ind] == '?') {
+		solve(ind + 1, sum + 1);
+		solve(ind + 1, sum - 1);
+	} else if (s2[ind] == '+') {
+		solve(ind + 1, sum + 1);
+	} else {
+		solve(ind + 1, sum - 1);
+	}
+}
+inline void solve1()
+{
+   cin >> s1 >> s2;
+	n = s1.size();
+	for (int i = 0; i < n; i++) {
+		if(s2[i] == '?') de *= 2;
+		if (s1[i] == '+')
+			ans++;
+		else
+			ans--;
+	}
+
+	solve(0, 0);
+
+	cout <<fixed << setprecision(10) << double(res * 1.0 / de) << endl;
+
+
+}
+
+int main()
+{
+
+    ll t;
+   // cin>>t;
+
+   //while(t--)
+    {
+
+       solve1();
+
+    }
+
+
+}

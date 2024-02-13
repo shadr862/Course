@@ -1,0 +1,24 @@
+#ifndef COMPLEX_H_INCLUDED
+#define COMPLEX_H_INCLUDED
+class complex
+{
+private :
+    int real,imaginary;
+public:
+    complex();
+    complex(int,int);
+    friend complex operator- (complex,complex);
+    friend complex operator-(complex,int);
+    friend complex operator-(int,complex);
+    friend complex operator*(complex,complex);
+    friend complex operator*(complex,int);
+    friend complex operator*(int,complex);
+    friend bool operator==(complex,complex);
+    friend bool operator!=(complex,complex);
+    void print();
+
+
+
+
+};
+#endif // COMPLEX_H_INCLUDED

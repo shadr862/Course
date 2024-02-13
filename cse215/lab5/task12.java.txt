@@ -1,0 +1,54 @@
+package javaapplication2;
+
+import java.io.PrintStream;
+import java.util.*;
+public class turjo{
+
+    
+
+     public static void main(String []args){
+         Scanner sc=new Scanner(System.in);
+         int i,j,r,c;
+          System.out.print("enter row and col:");
+          r=sc.nextInt();
+          c=sc.nextInt();
+         double array[][]=new double[r][c];
+         System.out.println("enter the array element:");
+             for(i=0;i<array.length;i++)
+                 {
+                     for(j=0;j<array[i].length;j++)
+                     {
+                       array[i][j]=sc.nextDouble();
+                     }
+                 }
+               
+         int arr[]=new int[2];
+         arr=locatelargest(array);
+         System.out.println("the location of the largest element is at:"+"("+arr[0]+","+arr[1]+")");
+         
+         
+         
+}
+     
+     public static int[] locatelargest(double [][]arr)
+     {
+         double max=arr[0][0];
+         int i,j;
+         int ind[]=new int[2];
+         for(i=0;i<arr.length;i++)
+             {
+                 for(j=0;j<arr[i].length;j++)
+                 {
+                      if(max<arr[i][j])
+                      {
+                          max=arr[i][j];
+                          ind[0]=i;
+                          ind[1]=j;
+                      }
+                 }
+                    
+             }
+         return ind;
+  
+     }
+}
